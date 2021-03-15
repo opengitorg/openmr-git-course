@@ -35,3 +35,6 @@ Several Git resources:
 * [Happy Git and GitHub for the useR](https://happygitwithr.com/)
 * [try.github.io](https://try.github.io/)
 * [git scm book - english](https://git-scm.com/book/en/v2)
+* [a simple guide for git](https://rogerdudler.github.io/git-guide/)
+* [a visual guide for git](https://marklodato.github.io/visual-git-guide/index-en.html)
+* [think like a git](think-like-a-git.net)
