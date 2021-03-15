@@ -12,18 +12,26 @@ root: .
 > Alternatively, this course can be followed on Windows using
 > Git Bash.
 > All of the commands shown will work on Windows using Git Bash,
-> with the exception of the `gedit` command.
-> Gedit is a common text editor on Linux:
+> with some exceptions of unix specific commands such as  `gedit`, `vim`, or `vi`.
+> Gedit is a common text editor on Linux, vim and vi are terminal based text editors.
+> You can use any other text/code editor such as [atom](https://atom.io/).
 > Windows users should use the `notepad` command instead, and set
 > notepad as the core editor when configuring Git.
 >
-> You will need a GitHub account for the afternoon session.
-> Please [sign up for an account](https://github.com/) this 
-> morning if you do not already have an account.
+> You will need a GitHub account for this tutorial.
+> Please [sign up for an account](https://github.com/)
+> if you do not already have an account.
 {: .prereq}
 
 ## Resources
-[Workshop slideshow](slideshow/index.html)
+Slides of this workshop is [here](slideshow/index.html)
+Several Git resources:
 
-[Git cheat sheet](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf)
+* [Git cheat sheet](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf)
 (You may want to download a copy of this for reference during this workshop)
+
+* [Introduction to GitHub: A visual guide](https://zenodo.org/record/3369466)
+* [Mozilla open leadership GitHub training](https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/introducing-github-for-collaborative-work-and-version-control/)
+* [Happy Git and GitHub for the useR](https://happygitwithr.com/)
+* [try.github.io](https://try.github.io/)
+* [git scm book - english](https://git-scm.com/book/en/v2)
