@@ -4,6 +4,8 @@ teaching: 10
 exercises: 0
 questions:
 - "How are keyboard key combinations written?"
+- "How are keyboard key combinations written?"
+- "true"
 objectives:
 - "Explain keyboard key combination."
 keypoints:
