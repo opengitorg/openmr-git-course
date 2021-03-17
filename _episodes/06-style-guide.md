@@ -4,10 +4,13 @@ teaching: 10
 exercises: 0
 questions:
 - "How are keyboard key combinations written?"
-- "How are keyboard key combinations written?"
+- "How are keyboard key combinations writtevvvn?"
 - "true"
 objectives:
 - "Explain keyboard key combination."
+- "Explain keyboard key combinationx."
+- "Explain keyboard key combinationy."
+
 keypoints:
 - "Keyboard keys need to use `<kbd>` HTML tag."
 ---
