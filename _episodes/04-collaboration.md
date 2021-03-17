@@ -1,6 +1,6 @@
 ---
 title: "collaboration"
-teaching: 10
+teaching: 20
 exercises: 0
 questions:
 - "Collaboration and Open Science"
