@@ -9,7 +9,7 @@ root: .
 > Some previous experience with the shell is expected,
 > *but is not mandatory*.
 > We will be explaining the necessary commands during the tutorial.
-> You can check the 
+> You can check the
 > We expect that participants of [OpenMR Benelux](https://openmrbenelux.github.io/) to execute these tutorial locally, you can use your local unix shell (either natively on Mac & Linux or under WSL on Windows).
 > Alternatively, this course can be followed on Windows using
 > Git Bash.
@@ -26,7 +26,8 @@ root: .
 {: .prereq}
 
 ## Resources
-Slides of this workshop is [here](slideshow/index.html)
+Slides of this workshop is [here](https://slides.com/ephraim24/a-quick-introduction-to-git-hub)
+
 Several Git resources:
 
 * [Git cheat sheet](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf)

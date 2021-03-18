@@ -4,167 +4,149 @@ teaching: 20
 exercises: 0
 questions:
 - "What is Git?"
-- "Version control"
+- "Why use version control?"
 - "Collaboration and Open Science"
-objectives:
-- "Explain how GitHub Pages produce web sites from Git repositories."
-- "Explain Jekyll's formatting rules."
+bjectives:
+- "Understand the benefits of an automated version control system."
+- "Understand the difference between Git and GitHub."
 keypoints:
-- "Lessons are stored in Git repositories on GitHub."
-- "Lessons are written in Markdown."
-- "Jekyll translates the files in the gh-pages branch into HTML for viewing."
-- "The site's configuration is stored in _config.yml."
-- "Each page's configuration is stored at the top of that page."
-- "Groups of files are stored in collection directories whose names begin with an underscore."
+- "Git is a version control tool; one of many."
+- "GitHub is a repository hosting service; one of many."
+- "Use version control to store versions neatly, restore previous versions,
+understand what happened (and why), and always know which is the current version."
 ---
-his episode describes the tools we use to build and manage lessons.
-These simplify many tasks, but make other things more complicated.
 
-## Repositories on GitHub
+## What is a version control system?
 
-Our lessons are stored in Git repositories (or "repos") on GitHub.
-We use the term *fork* to mean
-"a copy of a GitHub-hosted repo that is also hosted on GitHub"
-and the term *clone* to mean
-"a copy of a GitHub-hosted repo that's located on someone else's machine".
-In both cases,
-the duplicate has a reference that points to the original repo.
+Version control is a piece of software which allows you to record and
+preserve the history of changes made to directories and files. If you
+mess things up, you can retrieve an earlier version of your project.
 
-In an ideal world,
-we would put all of the common files used by our lessons
-(such as the CSS style files and the image files with project logos)
-in a template repo.
-The master copy of each lesson would be a fork of that repo,
-and each author's working copy would be a fork of that master:
+## Why use a version control system?
 
-![Forking Repositories]({{ page.root }}/fig/forking.svg)
+![[Piled Higher and Deeper by Jorge Cham, http://www.phdcomics.com](http://www.phdcomics.com)](../fig/phd101212s.png)
 
-However, GitHub only allows a user to have one fork of any particular repo.
-This creates a problem for us because an author may be involved in writing several lessons,
-each with its own repo.
-We therefore use [GitHub Importer][github-importer] to create new lessons.
-After the lesson has been created,
-we manually add the [template repository]({{ site.template_repo }}) as a remote called `template`
-to update the lesson when the template changes.
+The comic above illustrates some of pitfalls of working without version
+control. Some of the benefits are given below:
 
-![Repository Links]({{ page.root }}/fig/repository-links.svg)
+## Storing versions (properly)
+Saving files after you have made changes should be an automatic habit.
+However if you want to have different versions of your code, you will
+need to save the new version somewhere else or with a different name.
 
-## GitHub Pages
+* Do you just save the file(s) you changed, or all the files in the project?
+* How do you name these different versions? It is very easy to lose track
+of what is what.
+* How do you know what is different between each version?
 
-If a repository has a branch called `gh-pages` (short for "GitHub Pages"),
-GitHub publishes its content to create a website for the repository.
-If the repository's URL is `https://github.com/USERNAME/REPOSITORY`,
-the website is `https://USERNAME.github.io/REPOSITORY`.
+Without a VCS you will probably end up with lots of nearly-identical
+(but critically different) copies of the same file, which is confusing
+and wastes hard drive space.
+Your project will probably start to look like this:
 
-GitHub Pages sites can include static HTML pages,
-which are published as-is,
-or they can use [Jekyll][jekyll] as described below
-to compile HTML and/or Markdown pages with embedded directives
-to create the pages for display.
+![](../fig/astorytoldinfilenames.gif)
 
-> ## Why Doesn't My Site Appear?
->
-> If the root directory of a repository contains a file called `.nojekyll`,
-> GitHub will *not* generate a website for that repository's `gh-pages` branch.
-{: .callout}
+A VCS treats your files as one project, so you only have one current
+version on your disk (the working copy) - all the other variants and
+previous versions are saved in the VCS repository. A VCS starts with
+a base version of your project and only saves the changes you make along
+the way, so it is much more space efficient too.
 
-We write lessons in Markdown because it's simple to learn
-and isn't tied to any specific language.
-(The ReStructured Text format popular in the Python world,
-for example,
-is a complete unknown to R programmers.)
-If authors want to write lessons in something else,
-such as [R Markdown][r-markdown],
-they must generate HTML or Markdown that [Jekyll][jekyll] can process
-and commit that to the repository.
-A [later episode]({{ page.root }}/04-formatting/) describes the Markdown we use.
+Add changes sequentially
+![Add changes sequentially](../fig/play-changes.svg)
 
-> ## Teaching Tools
->
-> We do *not* prescribe what tools instructors should use when actually teaching:
-> the [Jupyter Notebook][jupyter],
-> [RStudio][rstudio],
-> and the good ol' command line are equally welcome up on stage.
-> All we specify is the format of the lesson notes.
-{: .callout}
+Save different versions
+![Save different versions](../fig/versions.svg)
 
-## Jekyll
+Merge different versions
+![Merge different versions](../fig/merge.svg)
 
-GitHub uses [Jekyll][jekyll] to turn Markdown into HTML.
-It looks for text files that begin with a header formatted like this:
+## Restoring previous versions
+The ability to restore previous versions of a file (or all the files
+in your project) greatly reduces the scope for screw ups. If you make
+changes which you later want to abandon (e.g. the wording of your
+conclusion section was better before you started making changes, your
+code changes end up breaking things which previously worked and you
+can't figure out why etc), you can just undo them by restoring a previous
+version.
 
-~~~
----
-variable: value
-other_variable: other_value
----
-...stuff in the page...
-~~~
-{: .source}
+## Understanding what happened
+Each time you save a new version of your project, VCS requires you to
+give a description of why you made the changes. This helps identify
+which version is which.
 
-and inserts the values of those variables into the page when formatting it.
-The three dashes that start the header *must* be the first three characters in the file:
-even a single space before them will make [Jekyll][jekyll] ignore the file.
+## Backup
+For distributed version control like Git, each person working on the
+project has a complete copy of the project's  history (i.e. the repository)
+on their hard drive. This acts as a backup for the server hosting the
+remote repository.
 
-The header's content must be formatted as [YAML][yaml],
-and may contain Booleans, numbers, character strings, lists, and dictionaries of name/value pairs.
-Values from the header are referred to in the page as `page.variable`.
-For example,
-this page:
+## Collaboration
+Without VCS, you are probably using a shared drive and taking turns to
+edit files, or emailing files back and forth. This makes it really
+easy to overwrite or abandon someone else's changes because you have
+to manually incorporate the other person's changes into your version
+and vice versa.
 
-~~~
----
-name: Science
----
-{% raw %}Today we are going to study {{page.name}}.{% endraw %}
-~~~
-{: .source}
+With VCS, everyone is able to work on any file at any time without
+affecting anyone else. The VCS will then help you merge all the changes
+into a common version. It is also always clear where the most recent
+version is kept (in the repository).
 
-is translated into:
 
-~~~
-<html>
-  <body>
-    <p>Today we are going to study Science.</p>
-  </body>
-</html>
-~~~
-{: .html}
+## Example scenario
+Think about the following situation:
 
-> ## Back in the Day...
->
-> The previous version of our template did not rely on Jekyll,
-> but instead required authors to build HTML on their desktops
-> and commit that to the lesson repository's `gh-pages` branch.
-> This allowed us to use whatever mix of tools we wanted for creating HTML (e.g., [Pandoc][pandoc]),
-> but complicated the common case for the sake of uncommon cases,
-> and didn't model the workflow we want learners to use.
-{: .callout}
+You are working on a handful of MATLAB files. You make a few changes,
+and then you want to try something you're not quite confident about
+yet, so you save a copy in another folder just in case.
 
-## Configuration
+Then you want to try out the program with more data on a bigger machine,
+and you make a few changes there to get it working properly. Then you
+try out something else in the copy on your laptop.
 
-[Jekyll][jekyll] also reads values from a configuration file called `_config.yml`,
-which are referred to in pages as `site.variable`.
-The [lesson template]({{ site.template_repo }}) does *not* include `_config.yml`,
-since each lesson will change some of its value,
-which would result in merge collisions each time the lesson was updated from the template.
-Instead,
-the [template]({{ site.template_repo }}) contains a script called `bin/lesson_initialize.py`
-which should be run *once* to create an initial `_config.yml` file
-(and a few other files as well).
-The author should then edit the values in the top half of the file.
+Now you have three or four copies, all slightly different, and you have
+some results generated from all of them, and you include some of it in
+a paper.
 
-## Collections
+Then someone asks for the same results based on a new data file. You have
+to go off and remind yourself which version you used, find out whether
+you still have it at all or whether you've changed it again since, check
+whether it really has the vital changes you thought you'd included but
+that might have been only on that other machine, and so on.
 
-If several Markdown files are stored in a directory whose name begins with an underscore,
-[Jekyll][jekyll] creates a [collection][jekyll-collection] for them.
-We rely on this for both lesson episodes (stored in `_episodes`)
-and extra files (stored in `_extras`).
-For example,
-putting the extra files in `_extras` allows us to populate the "Extras" menu pulldown automatically.
-To clarify what will appear where,
-we store files that appear directly in the navigation bar
-in the root directory of the lesson.
-[The next episode]({{ page.root }}/03-organization/) describes these files.
+You should easily be able to see the benefits of VCS in the situation above.
 
-{% include links.md %}
+## What files can I track using version control?
+VCS is typically used for software source code, but it can be used for
+any kind of **text** file:
+
+- Configuration files
+- Parameter sets
+- Data files
+- User documentation, manuals, and journal papers,  whether they be plain-text,
+LaTeX, XML, md etc
+- Have a look at some of the projects on [GitHub](https://github.com/explore)
+
+## Why should I avoid tracking binary files with version control?
+It is possible to add binary files to a Git repository, but this is usually
+a bad idea:
+- diffs between versions become meaningless
+- binary files are often large, and thus slow down your repository
+- changes to binary files often required a whole new copy to be saved, so your
+repository can quickly grow in size
+
+Strategies for dealing with large binary files are discussed
+[here](https://www.perforce.com/blog/storing-large-binary-files-in-git-repositories).
+
+## Git vs GitHub
+For this session, we'll be using Git, a popular distributed version control system
+and [GitHub](http://github.com), a web-based service providing remote
+repositories. *Distributed* means that each user has a complete copy of
+the repository on their computer and can commit changes offline. If you
+have used a centralized version control system before e.g. Subversion,
+this will be one of the major differences to how you are used to working.
+See [here](https://git.wiki.kernel.org/index.php/GitSvnComparsion) for a more
+detailed comparison of Git and Subversion.
+
+[Presentation](https://slides.com/ephraim24/a-quick-introduction-to-git-hub)
