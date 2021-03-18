@@ -1,6 +1,6 @@
 ---
 title: "Git with others"
-teaching: 30
+teaching: 20
 exercises: 0
 questions:
 - "How do I update my local repository with changes from the remote?"

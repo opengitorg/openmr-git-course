@@ -1,6 +1,6 @@
 ---
-title: "community"
-teaching: 10
+title: "Community, Contribution"
+teaching: 20
 exercises: 0
 questions:
 - "How can I contribute to a repository to which I don't have write access?"
