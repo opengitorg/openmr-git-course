@@ -5,7 +5,7 @@ exercises: 0
 questions:
 - "How do I update my local repository with changes from the remote?"
 - "How can I collaborate using Git?"
--"What is a remote repository"
+- "What is a remote repository"
 - "How can I use GitHub to work from multiple locations?"
 objectives:
 - "Understand how to set up remote repository"
