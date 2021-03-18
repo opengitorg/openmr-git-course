@@ -21,7 +21,7 @@ keypoints:
 - "`git checkout` recovers old versions of files"
 - "`HEAD` points to the commit you have checked out"
 - "`master` points to the tip of the `master` branch"
--"`git branch` creates a new branch"
+- "`git branch` creates a new branch"
 - "Use feature branches for new ideas and fixes, before merging into `master`"
 - merging does not delete any branches
 ---

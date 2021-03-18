@@ -13,12 +13,11 @@ objectives:
 - "Understand how to clone a remote repository"
 - "Understand how to pull changes from remote repository"
 - "Understand how to resolve merge conflicts"
-
 keypoints:
 - "Git is the version control system: GitHub is a remote repositories provider."
 - "`git clone` to make a local copy of a remote repository"
 - "`git push` to send local changes to remote repository"
-"`git pull` to integrate remote changes into local copy of repository"
+- "`git pull` to integrate remote changes into local copy of repository"
 ---
 
 [GitHub](http://GitHub.com) is a company which provides remote repositories for
