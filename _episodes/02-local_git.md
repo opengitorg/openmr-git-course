@@ -271,7 +271,7 @@ Now we will work a bit further on our *article.md* file by writing the introduct
 section.
 
 ```
-$ vim article.md
+$ atom article.md
 # Write introduction section
 ```
 {: .language-bash}
@@ -319,14 +319,14 @@ want to reuse:
 
 ~~~
 $ mkdir common
-$ vim common/references.txt					# Add a reference
+$ atom common/references.txt					# Add a reference
 ~~~
 {: .language-bash}
 
 We will also add a citation in our introduction section (in article.md).
 
 ~~~
-$ vim article.md 						# Use reference in introduction
+$ atom article.md 						# Use reference in introduction
 ~~~
 {: .language-bash}
 
