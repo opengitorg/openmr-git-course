@@ -6,8 +6,7 @@ questions:
 - "What is Git?"
 - "Why use version control?"
 - "Git & Github"
-- local git setup
-bjectives:
+objectives:
 - "Understand the benefits of an automated version control system."
 - "Understand the difference between Git and GitHub."
 keypoints:
