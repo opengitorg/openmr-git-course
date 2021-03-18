@@ -1,6 +1,6 @@
 ---
 title: "Looking at history and differences"
-teaching: 30
+teaching: 20
 exercises: 0
 questions:
 - "How do I get started with Git?"
