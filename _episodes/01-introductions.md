@@ -5,7 +5,8 @@ exercises: 0
 questions:
 - "What is Git?"
 - "Why use version control?"
-- "Collaboration and Open Science"
+- "Git & Github"
+- local git setup
 bjectives:
 - "Understand the benefits of an automated version control system."
 - "Understand the difference between Git and GitHub."
