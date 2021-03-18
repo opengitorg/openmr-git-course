@@ -25,7 +25,6 @@ keypoints:
 - "Use feature branches for new ideas and fixes, before merging into `master`"
 - merging does not delete any branches
 ---
----
 
 
 ### Looking at differences
