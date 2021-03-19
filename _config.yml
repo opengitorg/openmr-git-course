@@ -19,7 +19,7 @@ contact: "mailto:atay.m.selim@gmail.com?subject=Git course"
 
 # What kind of thing is this ("workshop" or "lesson")?
 kind: "lesson"
-
+markdown: kramdown
 # Magic to make URLs resolve both locally and on GitHub.
 # See https://help.github.com/articles/repository-metadata-on-github-pages/.
 repository: <USERNAME>/<PROJECT>
