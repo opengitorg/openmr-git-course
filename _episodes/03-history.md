@@ -7,7 +7,7 @@ questions:
 - "Where does Git store information?"
 - "What is a branch?"
 - "How can I merge changes from another branch?"
-- reverting changes
+- Reverting changes
 objectives:
 - "Be able to view history of changes to a repository"
 - "Be able to view differences between commits"
@@ -34,8 +34,8 @@ Make the required changes, save both files but do not commit the changes yet.
 We can review the changes that we made using:
 
 ~~~
-$ gedit paper.md		# Cite previous studies in introduction
-$ gedit refs.txt		# Add the reference to the database
+$ atom article.md		# Cite previous studies in introduction
+$ atom refs.txt		# Add the reference to the database
 $ git diff 			# View changes
 ~~~
 {: .language-bash}
@@ -70,7 +70,7 @@ technologies.
 
 Now commit the change we made by adding the second reference:
 ```
-$ git add paper.md refs.txt
+$ git add article.md refs.txt
 $ git commit			# "Cite previous work in introduction"
 ```
 {: .language-bash}
@@ -90,7 +90,7 @@ commit 8bf67f3862828ec51b3fdad00c5805de934563aa
 Author: Your Name <your.name@manchester.ac.uk>
 Date:   Mon Jun 26 10:22:39 2017 +0100
 
-    Cite PCASP paper
+    Cite PCASP article
 
 
 commit 4dd7f5c948fdc11814041927e2c419283f5fe84c
@@ -164,7 +164,7 @@ HEAD is now at 21cfbde... Add title and authors
 This strange concept of the 'detached HEAD' is covered in the next section ...
 just bear with me for now!
 
-If we look at `paper.md` we'll see it's our very first version. And if we
+If we look at `article.md` we'll see it's our very first version. And if we
 look at our directory,
 
 ~~~
@@ -172,7 +172,7 @@ $ ls
 ~~~
 {: .language-bash}
 ~~~
-paper.md
+article.md
 ~~~
 {: .output}
 
@@ -192,7 +192,7 @@ $ ls
 ~~~
 {: .language-bash}
 ~~~
-paper.md refs.txt
+article.md refs.txt
 ~~~
 {: .output}
 So we can get any version of our files from any point in time. In other words,
@@ -237,7 +237,7 @@ $ git log --graph --decorate --oneline
 
 ```
 * 6a48241 (HEAD, master) Cite previous work in introduction
-* ed26351 Cite PCASP paper
+* ed26351 Cite PCASP article
 * 7446b1d Write introduction
 * 4f572d5 Add title and author
 ```
@@ -255,7 +255,7 @@ $ git log --graph --decorate --oneline --all
 {: .language-bash}
 
 ```
-* 6a48241 (master) Reference second paper in introduction
+* 6a48241 (master) Reference second article in introduction
 * ed26351 (HEAD) Reference Allen et al in introduction
 * 7446b1d Write introduction
 * 4f572d5 Add title and authors
@@ -278,7 +278,7 @@ act as easy-to-remember nicknames for commit identifiers.
 For example,
 
 ```
-$ git tag PAPER_STUB
+$ git tag article_STUB
 ```
 {: .language-bash}
 
@@ -292,9 +292,9 @@ $ git tag
 Let's explain to the reader [why this research is important][give-context]:
 
 ```
-$ gedit paper.md	# Give context for research
-$ git add paper.md
-$ git commit -m "Explain motivation for research" paper.md
+$ atom article.md	# Give context for research
+$ git add article.md
+$ git commit -m "Explain motivation for research" article.md
 ```
 {: .language-bash}
 
@@ -302,7 +302,7 @@ We can checkout our previous version using our tag instead of a commit
 identifier.
 
 ```
-$ git checkout PAPER_STUB
+$ git checkout article_STUB
 ```
 {: .language-bash}
 
@@ -315,7 +315,7 @@ $ git checkout master
 
 > ## Top tip: tag significant events
 > When do you tag? Well, whenever you might want to get back to the exact
-> version you've been working on. For a paper, this might be a version that has
+> version you've been working on. For a article, this might be a version that has
 > been submitted to an internal review, or has been submitted to a conference.
 > For code this might be when it's been submitted to review, or has been
 > released.
@@ -330,7 +330,7 @@ $ git checkout master
 > ## Exercise: "bio" Repository
 >
 > - Create a new Git repository on your computer called "bio"
-> - Be sure not to create your new repo within the 'paper' repo (see above)
+> - Be sure not to create your new repo within the 'article' repo (see above)
 > - Write a three-line biography for yourself in a file called **me.txt**
 > - Commit your changes
 > - Modify one line, add a fourth line, then save the file
@@ -339,7 +339,7 @@ $ git checkout master
 > You may wish to use the faded example below as a guide
 >
 > ```
-> cd ..                # Navigate out of the paper directory
+> cd ..                # Navigate out of the article directory
 >                      # Avoid creating a repo within a repo - confusion will arise!
 > mkdir ___            # Create a new directory called 'bio'
 > cd ___               # Navigate into the new directory
@@ -355,23 +355,22 @@ $ git checkout master
 > > ## Solution
 > >
 > > ```
-> > cd ..                # Navigate out of the paper directory
+> > cd ..                # Navigate out of the article directory
 > >                      # Avoid creating a repo within a repo - confusion will arise!
 > > mkdir bio            # Create a new directory
 > > cd bio               # Navigate into the new directory
 > > git init             # Initialise a new repository
-> > gedit me.txt         # Create a file and write your biography
+> > atom me.txt         # Create a file and write your biography
 > > git add me.txt       # Add your biography file to the staging area
 > > git commit           # Commit your staged changes
-> > gedit me.txt         # Edit your file
+> > atom me.txt         # Edit your file
 > > git diff me.txt      # Display differences between your modified file and the last committed version
 > > ```
 > > {: .language-bash}
 > {: .solution}
 {: .challenge}
 
-[reference-previous-work]: https://github.com/gcapes/git-course-paper/commit/add59ba7d0b963531195eb3774b79bb9bcd749d1#diff-0403ef06adf405f7b310b4518bd6a3559854f54c61676f676ce9cbfee7172ab6
-[give-context]: https://github.com/gcapes/git-course-paper/commit/92f674de54c77afd7ae32342f9f03d2bdd8fb76d#diff-0403ef06adf405f7b310b4518bd6a3559854f54c61676f676ce9cbfee7172ab6
+
 ### What is a branch?
 
 You might have noticed the term *branch* in status messages:
@@ -433,9 +432,9 @@ on the Atlassian website.
 
 ### Branching in practice
 
-One of our colleagues wants to contribute to the paper but is not quite sure
+One of our colleagues wants to contribute to the article but is not quite sure
 if it will actually make a publication. So it will be safer to create a branch
-and carry on working on this "experimental" version of the paper in a branch
+and carry on working on this "experimental" version of the article in a branch
 rather than in the master.
 
 ~~~
@@ -447,7 +446,7 @@ Switched to a new branch 'simulations'
 ~~~
 {: .output}
 
-We're going to change the title of the paper and update the author list (adding John Smith).
+We're going to change the title of the article and update the author list (adding John Smith).
 However, before we get started it's a good practice to check that we're working
 on the right branch.
 
@@ -461,11 +460,11 @@ $ git branch			# Double check which branch we are working on
 ~~~
 {: .output}
 
-The * indicates which branch we're currently in. Now let's [make the changes][change-title] to the paper.
+The * indicates which branch we're currently in. Now let's [make the changes][change-title] to the article.
 
 ~~~
-$ gedit paper.md		# Change title and add co-author
-$ git add paper.md
+$ atom article.md		# Change title and add co-author
+$ git add article.md
 $ git commit			# "Modify title and add John as co-author"
 ~~~
 {: .language-bash}
@@ -481,27 +480,27 @@ Switched to branch 'master'
 ~~~
 {: .output}
 
-Having written some of the paper, we have thought of a [better title][aircraft-title] for
-the `master` version of the paper.
+Having written some of the article, we have thought of a [better title][aircraft-title] for
+the `master` version of the article.
 
 ~~~
-$ gedit paper.md		# Rewrite the title
-$ git add paper.md
+$ atom article.md		# Rewrite the title
+$ git add article.md
 $ git commit			# "Include aircraft in title"
 ~~~
 {: .language-bash}
 
 ### Merging and resolving conflicts
 
-We are now working on two papers: the main one in our `master` branch and the one
+We are now working on two articles: the main one in our `master` branch and the one
 which may possibly be collaborative work in our "simulations" branch.
-Let's [add another section][simulations-section] to the paper to write about John's simulations.
+Let's [add another section][simulations-section] to the article to write about John's simulations.
 
 ~~~
 $ git checkout simulations	# Switch branch
-$ gedit paper.md		# Add 'simulations' section
-$ git add paper.md
-$ git commit -m "Add simulations" paper.md
+$ atom article.md		# Add 'simulations' section
+$ git add article.md
+$ git commit -m "Add simulations" article.md
 ~~~
 {: .language-bash}
 
@@ -521,7 +520,7 @@ git log --graph --all --oneline --decorate
 |/  
 * 87a65e6 Explain motivation for research
 * 6a48241 Cite previous work in introduction
-* ed26351 Cite PCASP paper
+* ed26351 Cite PCASP article
 * 7446b1d Start the introduction
 * 4f572d5 Add title and author
 ```
@@ -539,14 +538,14 @@ $ git merge simulations		# Merge simulations into master
 ~~~
 {: .language-bash}
 ~~~
-Auto-merging paper.md
-CONFLICT (content): Merge conflict in paper.md
+Auto-merging article.md
+CONFLICT (content): Merge conflict in article.md
 Automatic merge failed; fix conflicts and then commit the result.
 ~~~
 {: .output}
 
 Git cannot complete the merge because there is a conflict - if you recall,
-after creating the new branch, we changed the title of the paper on both branches.
+after creating the new branch, we changed the title of the article on both branches.
 We have to resolve the conflict and then complete the merge. We can get
 some more detail
 
@@ -562,11 +561,11 @@ You have unmerged paths.
 Unmerged paths:
   (use "git add <file>..." to mark resolution)
 
-    	both modified:      paper.md
+    	both modified:      article.md
 ~~~
 {: .output}
 
-Let's look inside paper.md:
+Let's look inside article.md:
 
 ```
 # Title
@@ -593,8 +592,8 @@ of the two e.g. "Aircraft measurements and simulations of biomass burning aeroso
 [We edit the file][resolve-conflict]. Then commit our changes:
 
 ~~~
-$ gedit paper.md		# Resolve conflict by editing paper.md
-$ git add paper.md		# Let Git know we have resolved the conflict
+$ atom article.md		# Resolve conflict by editing article.md
+$ git add article.md		# Let Git know we have resolved the conflict
 $ git commit
 ~~~
 {: .language-bash}
@@ -619,7 +618,7 @@ $ git log --graph --decorate --all --oneline
 |/  
 * 87a65e6 Explain motivation for research
 * 6a48241 Cite previous work in introduction
-* ed26351 Cite PCASP paper
+* ed26351 Cite PCASP article
 * 7446b1d Start the introduction
 * 4f572d5 Add title and author
 ```
@@ -642,8 +641,8 @@ But we were then in the "detached HEAD" state.
 > > ## Solution
 > > ```
 > > git checkout HEAD~1  # Check out the commit one before last
-> > gedit paper.md     # Make some edits
-> > git add paper.md   # Stage the changes
+> > atom article.md     # Make some edits
+> > git add article.md   # Stage the changes
 > > git commit           # Commit the changes
 > > git branch           # You should see a message like the one below,
 > >                      # indicating your commit does not belong to a branch
@@ -719,7 +718,7 @@ But we were then in the "detached HEAD" state.
 > >
 > > ```
 > > git checkout HEAD~1		# Checkout the commit before last
-> > gedit paper.md		# Modify one of your files
+> > atom article.md		# Modify one of your files
 > > git commit -a			# Commit all the modified files
 > > git branch			# List local branches
 > > ```
@@ -761,11 +760,7 @@ But we were then in the "detached HEAD" state.
 > {: .solution}
 {: .challenge}
 
-[new branch animation]: https://learngitbranching.js.org/?NODEMO&command=git%20checkout%20HEAD~;git%20commit;git%20branch%20dh-ex;git%20checkout%20dh-ex;git%20checkout%20master
-[change-title]: https://github.com/gcapes/git-course-paper/commit/6d3e6fb24213f796a36fc8bec9db4cc779685482#diff-0403ef06adf405f7b310b4518bd6a3559854f54c61676f676ce9cbfee7172ab6
-[aircraft-title]: https://github.com/gcapes/git-course-paper/commit/adcd2a0ceba5d87f8c56873d7984020fa3d82809
-[simulations-section]: https://github.com/gcapes/git-course-paper/commit/804bd97911c7b8191e5a372df364e87d27ea8c05
-[resolve-conflict]: https://github.com/gcapes/git-course-paper/commit/366bc48f3529ea740f5345b2307e105b942ad48b
+
 
 ### Discarding local changes
 
@@ -775,8 +770,8 @@ haven't yet done a `git add` we can just throw the changes away and return
 our file to the most recent version we committed to the repository by using:
 
 ```
-$ gedit paper.md		# Make some small edits to the file
-$ git checkout paper.md		# Discard edits we just made
+$ atom article.md		# Make some small edits to the file
+$ git checkout article.md		# Discard edits we just made
 ```
 {: .language-bash}
 
@@ -785,7 +780,7 @@ the repository:
 
 ```
 $ git status			# See that we have a clean working directory
-$ gedit paper.md		# Inspect file to verify changes have been discarded
+$ atom article.md		# Inspect file to verify changes have been discarded
 ```
 {: .language-bash}
 
@@ -804,14 +799,14 @@ message.
 
 But what if we forgot to include some files in the commit?
 
-Let's try it on our example. First, let's [modify two files][describe-methodology]: our paper file and
-the references file. We will add a methodology section to the paper where we
+Let's try it on our example. First, let's [modify two files][describe-methodology]: our article file and
+the references file. We will add a methodology section to the article where we
 detail the model used for the simulations, and add a reference for this to the references
 file.
 
 ```
-$ gedit paper.md		# Add methodology section, including a reference to model
-$ gedit refs.txt		# Add new reference for the model used
+$ atom article.md		# Add methodology section, including a reference to model
+$ atom refs.txt		# Add new reference for the model used
 $ git status			# Get a status update on file modifications
 ```
 {: .output}
@@ -824,16 +819,16 @@ Changes not staged for commit:
   (use "git checkout -- <file>..." to discard changes in working directory)
 
 	modified:   refs.txt
-	modified:   paper.md
+	modified:   article.md
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 {: .output}
 
-Let's then add and commit *paper.md* but **not the references file**.
+Let's then add and commit *article.md* but **not the references file**.
 
 ```
-$ git add paper.md		 # Add paper to staging area
+$ git add article.md		 # Add article to staging area
 $ git commit -m "Describe methodology"
 ```
 {: .language-bash}
@@ -885,12 +880,12 @@ $ git log -3
 than deleting the commit from history, git works out how to undo those changes
 introduced by the commit, and appends a new commit with the resulting content.
 
-Let's try it on our example. Modify the paper, [describing the SMPS][SMPS] which is
+Let's try it on our example. Modify the article, [describing the SMPS][SMPS] which is
 another instrument used to measure particle sizes, and then make a commit.
 
 ```
-$ gedit paper.md		# Describe other instrument
-$ git add paper.md
+$ atom article.md		# Describe other instrument
+$ git add article.md
 $ git commit -m "Describe SMPS"
 ```
 {: .language-bash}
@@ -942,7 +937,7 @@ they were at `<commit>`. This is a permanent undo which deletes all changes more
 than `<commit>` from your history. There is clearly potential here to lose work, so use
 this command with care.
 
-Let's try that on our paper, using the same example as before. Now we have two commits
+Let's try that on our article, using the same example as before. Now we have two commits
 which we want to abandon: the commit outlining the unreliable instrumentation, and
 the subsequent revert commit. We can achieve this by resetting to the last
 commit we want to keep.
@@ -1005,6 +1000,3 @@ for further reading about the differences between `git revert` and `git reset`.
 
 ### How to undo almost anything with Git
 See [this blog post](https://github.com/blog/2019-how-to-undo-almost-anything-with-git) for more example scenarios and how to recover from them.
-
-[describe-methodology]: https://github.com/gcapes/git-course-paper/commit/00c685625b66952e33a7d88150232b7d6716a185
-[SMPS]: https://github.com/gcapes/git-course-paper/commit/bb77f4eafaf8a5c374a00ae17c79585d30343461

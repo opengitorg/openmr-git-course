@@ -45,7 +45,7 @@ private GitHub repositories (GitHub offers up to 5 free private repositories,
 if you are an academic - but do check this information as T&C may change).
 
 ### GitHub for research
-GitHub **isn't** the only remote repostitories provider. It is however very popular,
+GitHub **isn't** the only remote repostitory provider. It is however very popular,
 in particular within the Open Source communities. The reason why we teach GitHub
 in this tutorial is mainly due to popular demand.
 
@@ -68,7 +68,7 @@ Now, we can create a repository on GitHub,
 
 * Log in to [GitHub](https://GitHub.com/)
 * Click on the **Create** icon on the top right
-* Enter Repository name: "paper"
+* Enter Repository name: "article"
 * For the purpose of this exercise we'll create a public repository
 * Make sure that **Initialize this repository with a README** is **unselected**
 * Click **Create Repository**
@@ -101,7 +101,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (28/28), done.
 Writing objects: 100% (32/32), 3.29 KiB | 0 bytes/s, done.
 Total 32 (delta 7), reused 0 (delta 0)
-To https://github.com/gcapes/paper.git
+To https://github.com/i-am-mel-dev/article.git
  * [new branch]      master -> master
 Branch master set up to track remote branch master from origin.
 ```
@@ -160,14 +160,14 @@ cd ..
 ```
 {: .language-bash}
 
-Then to clone the repo into a new directory called `laptop_paper`
+Then to clone the repo into a new directory called `laptop_article`
 
 ```
-$ git clone https://github.com/<USERNAME>/paper.git laptop_paper
+$ git clone https://github.com/<USERNAME>/article.git laptop_article
 ```
 {: .language-bash}
 ```
-Cloning into 'laptop_paper'...
+Cloning into 'laptop_article'...
 remote: Counting objects: 32, done.
 remote: Compressing objects: 100% (21/21), done.
 remote: Total 32 (delta 7), reused 32 (delta 7), pack-reused 0
@@ -178,13 +178,13 @@ Checking connectivity... done.
 
 Cloning creates an exact copy of the repository. By deafult it creates
 a directory with the same name as the name of the repository.
-However, we already have a `paper` dircectory,
-so have specified that we want to clone into a new directory `laptop_paper`.
+However, we already have a `article` dircectory,
+so have specified that we want to clone into a new directory `laptop_article`.
 
-Now, if we `cd` into *laptop_paper* we can see that we have our repository,
+Now, if we `cd` into *laptop_article* we can see that we have our repository,
 
 ```
-$ cd laptop_paper
+$ cd laptop_article
 $ git log
 ```
 {: .language-bash}
@@ -210,8 +210,8 @@ We can use our cloned repository just as if it was a local repository so let's
 
 ```
 $ git checkout master				# We'll continue working on the master branch
-$ gedit paper.md				# Add results section
-$ git add paper.md				# Stage changes
+$ atom article.md				# Add results section
+$ git add article.md				# Stage changes
 $ git commit
 ```
 {: .language-bash}
@@ -234,7 +234,7 @@ $ git remote -v
 ```
 {: .language-bash}
 
-[add-results]: https://github.com/gcapes/git-course-paper/commit/0c4573e5ea15d6f5dc877e8db8c0696e7675d5ed
+
 
 ### Pulling changes from a remote repository
 
@@ -243,30 +243,30 @@ others (or even just continue to work alone but from multiple locations).
 We've seen how to clone the whole repo, so next we'll look at how to update
 our local repo with just the latest changes on the remote.
 
-We were in the `laptop_paper` directory at the end of the last episode,
+We were in the `laptop_article` directory at the end of the last episode,
 having pushed one commit to the remote.
-Let's now change directory to the other repository `paper`,
+Let's now change directory to the other repository `article`,
 and `git pull` the commit from the remote.
 
 ```
-$ cd ../paper
+$ cd ../article
 $ git pull origin master
 ```
 {: .language-bash}
 
-We can now view the contents of `paper.md` and check the log to confirm we have
+We can now view the contents of `article.md` and check the log to confirm we have
 the latest commit from the remote:
 ```
 $ git log -2
 ```
 {: .language-bash}
 
-Still in the `paper` directory, let's [add a figures section][add-figures] to `paper.md`,
+Still in the `article` directory, let's [add a figures section][add-figures] to `article.md`,
 commit the file and push these changes to GitHub:
 
 ```
-$ gedit paper.md		# Add figures section
-$ git add paper.md
+$ atom article.md		# Add figures section
+$ git add article.md
 $ git commit -m "Add figures"
 $ git push
 ```
@@ -276,7 +276,7 @@ Now let's change directory to our other repository and `fetch` the commits from 
 remote repository,
 
 ```
-$ cd ../laptop_paper		# Switch to the other directory
+$ cd ../laptop_article		# Switch to the other directory
 $ git fetch
 ```
 {: .language-bash}
@@ -304,7 +304,7 @@ git log --graph --all --decorate --oneline
 |/
 * 0b28b0a Explain motivation for research
 * 7cacba8 Cite previous work in introduction
-* 56781f4 Cite PCASP paper
+* 56781f4 Cite PCASP article
 * 5033467 Start the introduction
 * e08262e Add title and author
 ```
@@ -337,7 +337,7 @@ $ git merge origin/master
 ```
 Updating 0cc2a2d..7c239c3
 Fast-forward
- paper.md | 4 ++++
+ article.md | 4 ++++
  1 file changed, 4 insertions(+)
 ```
 {: .output}
@@ -361,7 +361,7 @@ git log --graph --all --decorate --oneline -4
 We can inspect the file to confirm that we have our changes.
 
 ```
-$ cat paper.md
+$ cat article.md
 ```
 {: .language-bash}
 
@@ -385,11 +385,11 @@ You may already have guessed that `git pull` is a shorthand for `git fetch` foll
 Let's [write the conclusions][write-conclusions]:
 
 ```
-$ gedit paper.md		# Write Conclusions
-$ git add paper.md
-$ git commit -m "Write Conclusions" paper.md
+$ atom article.md		# Write Conclusions
+$ git add article.md
+$ git commit -m "Write Conclusions" article.md
 $ git push origin master
-$ cd ../paper			# Switch back to the paper directory
+$ cd ../article			# Switch back to the article directory
 $ git pull origin master	# Get changes from remote repository
 ```
 {: .language-bash}
@@ -399,7 +399,7 @@ This is the same scenario as before, so we get another fast-forward merge.
 We can check that we have our changes:
 
 ```
-$ cat paper.md
+$ cat article.md
 $ git log
 ```
 {: .language-bash}
@@ -407,13 +407,13 @@ $ git log
 ### Conflicts and how to resolve them
 
 Let's continue to pretend that our two local repositories are hosted
-on two different machines. You should still be in the original *paper* folder.
+on two different machines. You should still be in the original *article* folder.
 [Add an affiliation for each author][author-affiliations].
 Then push these changes to our remote repository:
 
 ```
-$ gedit paper.md		# Add author affiliations
-$ git add paper.md
+$ atom article.md		# Add author affiliations
+$ git add article.md
 $ git commit -m "Add author affiliations"
 $ git push origin master
 ```
@@ -426,17 +426,17 @@ The remote branch `origin/master` is now ahead of our local `master` branch on t
 because we haven't yet updated our local branch using `git pull`.
 
 ```
-$ cd ../laptop_paper		# Switch directory to other copy of our repository
-$ gedit paper.md		# Change order of the authors
-$ git add paper.md
-$ git commit -m "Change the first author" paper.md
+$ cd ../laptop_article		# Switch directory to other copy of our repository
+$ atom article.md		# Change order of the authors
+$ git add article.md
+$ git commit -m "Change the first author" article.md
 $ git push origin master
 ```
 {: .language-bash}
 ```
-To https://github.com/<USERNAME>/paper.git
+To https://github.com/<USERNAME>/article.git
  ! [rejected]        master -> master (fetch first)
-error: failed to push some refs to 'https://github.com/<USERNAME>/paper.git'
+error: failed to push some refs to 'https://github.com/<USERNAME>/article.git'
 hint: Updates were rejected because the remote contains work that you do
 hint: not have locally. This is usually caused by another repository pushing
 hint: to the same ref. You may want to first integrate the remote changes
@@ -456,8 +456,8 @@ $ git pull origin master
 and we get:
 
 ```
-Auto-merging paper.md
-CONFLICT (content): Merge conflict in paper.md
+Auto-merging article.md
+CONFLICT (content): Merge conflict in article.md
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 {: .output}
@@ -475,15 +475,15 @@ $ git status
 {: .language-bash}
 
 we can see that our file is listed as *Unmerged* and if we look at
-*paper.md*, we see something like:
+*article.md*, we see something like:
 
 ```
 <<<<<<< HEAD
 Author
-G Capes, J Smith
+Atay, M Selim
 =======
 author
-J Smith, G Capes
+M Selim, Atay
 >>>>>>> 1b55fe7f23a6411f99bf573bfb287937ecb647fc
 ```
 
@@ -495,8 +495,8 @@ merging the branches.
 [We edit the file][merge-conflict]. Then commit our changes. Now, if we *push* ...
 
 ```
-$ gedit paper.md		# Edit file to resolve merge conflict
-$ git add paper.md		# Stage the file
+$ atom article.md		# Edit file to resolve merge conflict
+$ git add article.md		# Stage the file
 $ git commit			# Commit to mark the conflict as resolved
 $ git push origin master
 ```
@@ -513,7 +513,7 @@ We'll finish by pulling these changes into other copy of the repo,
 so both copies are up to date:
 
 ```
-$ cd ../paper			# Switch to 'paper' directory
+$ cd ../article			# Switch to 'article' directory
 $ git pull origin master	# Merge remote branch into local
 ```
 {: .language-bash}
@@ -572,7 +572,7 @@ $ git pull origin master	# Merge remote branch into local
 > Counting objects: 3, done.  remote:
 > Compressing objects: 100% (3/3), done.
 > remote: Total 3 (delta 0), reused 2 (delta 0) Unpacking objects: 100% (3/3), done.
-> From  https://github.com/gcapes/paper
+> From  https://github.com/gcapes/article
 > 9e1705a..640210a master -> origin/master
 > * [new branch] their_branch -> origin/their_branch
 > ```
@@ -612,9 +612,3 @@ $ git pull origin master	# Merge remote branch into local
 > > You should always use `revert` to undo changes which have been shared with others.
 > {: .solution}
 {: .challenge}
-
-[add-figures]: https://github.com/gcapes/git-course-paper/commit/8bfe74f715173b3f000134d56678e39e64d4bfbb
-[write-conclusions]: https://github.com/gcapes/git-course-paper/commit/7f9d94849c7de7c8dd915938b13fecae037f675a
-[author-affiliations]: https://github.com/gcapes/git-course-paper/commit/047e3f80e6530a3559efea82fe56229baf57f0b4
-[change-first-author]: https://github.com/gcapes/git-course-paper/commit/3e431fe1e6b9111a614e156994209c78169bb7f5
-[merge-conflict]: https://github.com/gcapes/git-course-paper/commit/0bba3e4aff27b7f8fa92736ab6e07429fd1fc49d
