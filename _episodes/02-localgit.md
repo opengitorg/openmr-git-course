@@ -27,7 +27,7 @@ For this we will use the command line interface.
 > ## Why are we using the command line?
 
 > There are lots of graphical user interfaces (GUIs) for using Git: both stand-alone
-> and integrated into text editors (e.g. VSCode).
+> and integrated into text editors (e.g. VSCode/atom).
 > We are deliberately not using a GUI for this course because:
 >
 > * you will have a better understanding of how the git commands work

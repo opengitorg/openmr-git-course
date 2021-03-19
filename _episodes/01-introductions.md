@@ -108,7 +108,7 @@ try out something else in the copy on your laptop.
 Now you have three or four copies, all slightly different, and you have
 some results generated from all of them, and you include some of it in
 a paper.
-
+![VCS schema](https://git-scm.com/book/en/v2/images/local.png)
 Then someone asks for the same results based on a new data file. You have
 to go off and remind yourself which version you used, find out whether
 you still have it at all or whether you've changed it again since, check
