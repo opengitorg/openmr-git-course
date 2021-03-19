@@ -23,7 +23,6 @@ root: .
 > You will need a GitHub account for this tutorial.
 > Please [sign up for an account](https://github.com/)
 > if you do not already have an account.
-{: .prereq}
 
 ## Resources
 Slides of this workshop is [here](https://slides.com/ephraim24/a-quick-introduction-to-git-hub)
