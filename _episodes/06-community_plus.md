@@ -1,6 +1,6 @@
 ---
 title: "Git& Open Science Management"
-teaching: 20
+teaching: 10
 exercises: 0
 questions:
 - "Tips and Tricks"
