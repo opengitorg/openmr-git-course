@@ -1,12 +1,13 @@
 ---
 title: "Git with others"
-teaching: 20
+teaching: 30
 exercises: 0
 questions:
 - "How do I update my local repository with changes from the remote?"
 - "How can I collaborate using Git?"
 - "What is a remote repository"
 - "How can I use GitHub to work from multiple locations?"
+- "What is rebasing?"
 objectives:
 - "Understand how to set up remote repository"
 - "Understand how to push local changes to a remote repository"
@@ -521,4 +522,93 @@ $ git pull origin master	# Merge remote branch into local
 ```
 {: .language-bash}
 
-We now know how to solve conflicts between branches! 
+We now know how to solve conflicts between branches!
+## What is rebasing
+
+We were in the *article* directory at the end of the last episode,
+which is where this episode continues.
+
+Let's review the recent history of our project,
+noting particularly the commit message which results when `origin/master` and `master` diverge,
+and `origin/master` is merged back into `master`.
+
+```
+$ git log --graph --all --oneline --decorate -6
+```
+{: .language-bash}
+
+```
+*   365748e (HEAD -> master, origin/master, origin/HEAD) Merge branch 'master' of github.com:i-am-mel-dev/github course article
+* af1042b (HEAD -> master, origin/master) add author affiliations
+* a83a765 write conclusions
+* 68a3dee add figures
+* b37a12f results added
+*   1c90e39 Merge branch 'methodology'
+
+```
+{: .output}
+
+Normally a merge commit indicates that a feature branch has been completed,
+a bug has been fixed, or marks a release version of our project.
+Our most recent merge commit doesn't mark any real milestone in the history of the project ---
+all it tells us is that we didn't pull before we tried to push.
+Merge commits like this don't add any real value[^opinion],
+and can quickly clutter the history of a project.
+
+If only there were a way to avoid them,
+e.g. by starting with the tip of the remote branch
+and reapplying our local commits from this new starting point.
+You could also describe this as moving the local commits onto a new *base* commit
+i.e. **rebasing**.
+
+
+### What is it?
+Rebasing is the process of moving a whole branch to a new base commit.
+Git takes your changes, and "replays" them onto the new base commit.
+This creates a brand new commit for each commit in the original branch.
+As such, **your history is rewritten when you rebase**.
+
+It's like saying "add my changes to what has already been done".
+
+![Visual illustration of rebasing - image taken from [https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase)](../fig/git-rebase.svg)
+
+### How's that different to merging?
+Imagine you create a new feature branch to work in, and meanwhile there have been
+commits added to the `master` branch, as shown below.
+
+![](../fig/forked-history.svg)
+
+You've finished working on the feature, and
+you want to incorporate your changes from the `feature` branch into the `master` branch.
+You could merge directly or rebase then merge. We have already encountered merging, and it looks like this:
+
+![](../fig/merge-without-rebase.svg)
+
+The main reason you might want to rebase is to maintain a linear project history.
+In the example above, if you merge directly (recall that there are new commits on
+both the `master` branch and `feature` branch), you have a 3-way merge
+(common ancestor, HEAD and MERGE_HEAD) and a merge commit results.
+Note that you get a merge commit whether or not there are any merge conflicts.
+
+If you rebase, your commits from the `feature` branch are replayed onto `master`,
+creating brand new commits in the process.
+If there are any merge conflicts, you are prompted to resolve these.
+
+![](../fig/rebase-master.svg)
+
+After rebasing, you can then perform a fast-forward merge into `master` i.e. without
+an extra merge commit at the end, so you have a nice clean linear history.
+
+![](../fig/rebase-then-merge.svg)
+
+### Why would I consider rebasing?
+`Rebase` and `merge` solve the same problem: integrating commits from one branch into another.
+Which method you use is largely personal preference.
+
+Some reasons to consider rebasing:
+- To give a linear project history, which is easier to follow
+	- This makes using `git log`, and `git bisect` easier
+- To integrate upstream changes into your local repository, without creating any merge commits
+- To keep a feature branch up to date with master, without polluting your feature branch with extraneous merge commits
+- Makes pull requests easier to manage (because you've already resolved any merge conflicts while rebasing)
+- To tidy up a feature branch before merging into master.
