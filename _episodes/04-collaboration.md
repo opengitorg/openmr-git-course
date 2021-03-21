@@ -78,7 +78,7 @@ our local repository and we will be *pushing* it to GitHub, so this is the
 option we will use:
 
 ```
-$ git remote add origin https://github.com/<USERNAME>/paper.git
+$ git remote add origin https://github.com/<USERNAME>/article.git
 $ git push -u origin master
 ```
 {: .language-bash}
@@ -96,14 +96,17 @@ $ git push -u origin master
 ```
 {: .language-bash}
 ```
-Counting objects: 32, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (28/28), done.
-Writing objects: 100% (32/32), 3.29 KiB | 0 bytes/s, done.
-Total 32 (delta 7), reused 0 (delta 0)
-To https://github.com/i-am-mel-dev/article.git
+Enumerating objects: 25, done.
+Counting objects: 100% (25/25), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (23/23), done.
+Writing objects: 100% (25/25), 2.56 KiB | 875.00 KiB/s, done.
+Total 25 (delta 8), reused 0 (delta 0)
+remote: Resolving deltas: 100% (8/8), done.
+To https://github.com/i-am-mel-dev/git-course-article.git
  * [new branch]      master -> master
-Branch master set up to track remote branch master from origin.
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
 ```
 {: .output}
 
