@@ -232,7 +232,7 @@ creating a new commit (not abandoning them). Since Git is a version control
 system, everything that we recorded in the past commits will be available in
 the repository.
 
-For example, if you accidentally commited a file with sensitive data (passwords)
+For example, if you accidentally committed a file with sensitive data (passwords)
 in your local repository and then pushed it to the remote repository, the file
 will be there even if in the next commit-and-push you'll remove it (`git rm`).
 
@@ -241,17 +241,17 @@ a step-by-step tutorial on how to remove completely files from your repository
 (purge the repository) using `git filter-branch`.
 
 Removing files from the repository may be useful not only when the files
-contain sensitive data. Another case may be if you commited a large file in
+contain sensitive data. Another case may be if you committed a large file in
 your local repository. Essentially, by default, there are no limitations on the
 size of files you can commit. However, there may be (and quite likely there
 will be) limits on the size of the files you can push to remote repositories
 (GitHub allows for max 100MB). You may encounter an annoying situation when you
-commited a large file locally and then kept on working making local commits but
+committed a large file locally and then kept on working making local commits but
 not pushing. Finally, you decide to push to GitHub (or elsewhere remote) and
 you can't because the file is too big. Using `git rm` won't help because you
 are pushing since the last pushed commit and that means in between there is
 a commit with the large problematic file. To recover from this you will have to
-purge your large file from the repo (or switch to a different remote repo
+purge your large file from the repository (or switch to a different remote repository
 provider that allows for large files).
 
 Again, as always with Git **before** you execute the above, make sure you know
@@ -303,24 +303,24 @@ collaborator starts contributing, they, too, hold copyright and will
 thus need to be asked for approval once a license is chosen.
 
 ## Can I Use Open License?
->
-> Find out whether you are allowed to apply an open license to your software.
-> Can you do this unilaterally,
-> or do you need permission from someone in your institution?
-> If so, who?
+ Find out whether you are allowed to apply an open license to your software.
+Can you do this unilaterally,
+or do you need permission from someone in your institution?
+ If so, who?
+
 {: .challenge}
 
 ## What licenses have I already accepted?
->
-> Many of the software tools we use on a daily basis (including in this workshop) are
-> released as open-source software. Pick a project on GitHub from the list below, or
-> one of your own choosing. Find its license (usually in a file called `LICENSE` or
-> `COPYING`) and talk about how it restricts your use of the software. Is it one of
-> the licenses discussed in this session? How is it different?
-> - [Git](https://github.com/git/git), the source-code management tool
-> - [CPython](https://github.com/python/cpython), the standard implementation of the Python language
-> - [Jupyter](https://github.com/jupyter), the project behind the web-based Python notebooks we'll be using
-> - [EtherPad](https://github.com/ether/etherpad-lite), a real-time collaborative editor
+ Many of the software tools we use on a daily basis (including in this workshop) are
+released as open-source software. Pick a project on GitHub from the list below, or
+ one of your own choosing. Find its license (usually in a file called `LICENSE` or
+`COPYING`) and talk about how it restricts your use of the software. Is it one of
+ the licenses discussed in this session? How is it different?
+ - [Git](https://github.com/git/git), the source-code management tool
+ - [CPython](https://github.com/python/cpython), the standard implementation of the Python language
+ - [Jupyter](https://github.com/jupyter), the project behind the web-based Python notebooks we'll be using
+ - [EtherPad](https://github.com/ether/etherpad-lite), a real-time collaborative editor
+
 {: .challenge}
 
 [software-licensing]: https://doi.org/10.1371/journal.pcbi.1002598
@@ -403,43 +403,41 @@ by acting as a shareable electronic lab notebook for computational work:
     the entire history of the repository is easy to archive for perpetuity.
 
 ## Making Code Citable
->
-> Anything that is hosted in a version control repository (data, code, papers,
-> etc.) can be turned into a citable object.
+ Anything that is hosted in a version control repository (data, code, papers,
+etc.) can be turned into a citable object.
 Details and tutorial is [here](https://guides.github.com/activities/citable-code/)
 
 {: .callout}
 
 ## How Reproducible Is My Work?
->
-> Ask one of your labmates to reproduce a result you recently obtained
-> using only what they can find in your papers or on the web.
-> Try to do the same for one of their results,
-> then try to do it for a result from a lab you work with.
+Ask one of your labmates to reproduce a result you recently obtained
+using only what they can find in your papers or on the web.
+Try to do the same for one of their results,
+ then try to do it for a result from a lab you work with.
+
 {: .challenge}
 
 ## How to Find an Appropriate Data Repository?
->
-> Surf the internet for a couple of minutes and check out the data repositories
-> mentioned above: [Figshare](https://figshare.com/), [Zenodo](https://zenodo.org),
-> [Dryad](https://datadryad.org/). Depending on your field of research, you might
-> find community-recognized repositories that are well-known in your field.
-> You might also find useful [these data repositories recommended by Nature](
-> https://www.nature.com/sdata/data-policies/repositories).
-> Discuss with your neighbor which data repository you might want to
-> approach for your current project and explain why.
+Surf the internet for a couple of minutes and check out the data repositories
+ mentioned above: [Figshare](https://figshare.com/), [Zenodo](https://zenodo.org),
+[Dryad](https://datadryad.org/). Depending on your field of research, you might
+find community-recognized repositories that are well-known in your field.
+You might also find useful [these data repositories recommended by Nature](
+https://www.nature.com/sdata/data-policies/repositories).
+Discuss with your neighbor which data repository you might want to
+approach for your current project and explain why.
+
 {: .challenge}
 
 ## How to Track Large Data or Image Files using Git?
->
-> Large data or image files such as `.md5` or `.psd` file types can be tracked within
-> a github repository using the [Git Large File Storage](https://git-lfs.github.com)
-> open source extension tool.  This tool automatically uploads large file contents to
-> a remote server and replaces the file with a text pointer within the github repository.
->
-> Try downloading and installing the Git Large File Storage extension tool, then add
-> tracking of a large file to your github repository.  Ask a colleague to clone your
-> repository and describe what they see when they access that large file.   
+Large data or image files such as `.md5` or `.psd` file types can be tracked within
+ a github repository using the [Git Large File Storage](https://git-lfs.github.com)
+open source extension tool.  This tool automatically uploads large file contents to
+a remote server and replaces the file with a text pointer within the github repository.
+Try downloading and installing the Git Large File Storage extension tool, then add
+tracking of a large file to your github repository.  Ask a colleague to clone your
+repository and describe what they see when they access that large file.   
+
 {: .challenge}
 We've seen how we can use version control to:
 
