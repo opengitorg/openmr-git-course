@@ -229,7 +229,7 @@ we need to  **commit** it:
 ~~~
 $ git commit
 # Type a commit message: "Add title and authors"
-# Save the commit message and close your text editor (vim, notepad etc.)
+# Save the commit message and close your text editor (vim, atom, notepad etc.)
 ~~~
 {: .language-bash}
 
@@ -241,7 +241,7 @@ why. So we need to provide this in a commit message.
 If we save our commit message **and exit the editor**, Git will now commit our file.
 
 ~~~
-[master (root-commit) 21cfbde]
+[master (root-commit) 537997c]
 1 file changed, 2 insertions(+) Add title and authors
 create mode 100644 article.md
 ~~~
@@ -346,7 +346,7 @@ article.md in the staging area. But there is a shortcut. We can use
 that have been modified".
 
 ~~~
-$ git commit -am "Reference J Bloggs and add references file" 	# Add and commit all tracked files
+$ git commit -am "Reference Huang and add references file" 	# Add and commit all tracked files
 ~~~
 {: .language-bash}
 and Git will add, then commit, both the directory and the file.
