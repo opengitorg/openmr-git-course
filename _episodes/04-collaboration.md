@@ -171,11 +171,11 @@ $ git clone https://github.com/<USERNAME>/article.git laptop_article
 {: .language-bash}
 ```
 Cloning into 'laptop_article'...
-remote: Counting objects: 32, done.
-remote: Compressing objects: 100% (21/21), done.
-remote: Total 32 (delta 7), reused 32 (delta 7), pack-reused 0
-Unpacking objects: 100% (32/32), done.
-Checking connectivity... done.
+remote: Enumerating objects: 25, done.
+remote: Counting objects: 100% (25/25), done.
+remote: Compressing objects: 100% (15/15), done.
+remote: Total 25 (delta 8), reused 25 (delta 8), pack-reused 0
+Unpacking objects: 100% (25/25), 2.54 KiB | 520.00 KiB/s, done.
 ```
 {: .output}
 
@@ -287,7 +287,7 @@ $ git fetch
 `git fetch` doesn't change any of the local branches,
 it just gets information about what commits are on the remote branches.
 
-We can visualise the remote branches in the same way as we did for local branches,
+We can visualize the remote branches in the same way as we did for local branches,
 so let's draw a network graph before going any further:
 
 ```
@@ -296,20 +296,19 @@ git log --graph --all --decorate --oneline
 {: .language-bash}
 
 ```
-* 7c239c3 (origin/master, origin/HEAD) Add figures
-* 0cc2a2d (HEAD -> master) Discuss results
-* 3011ee0 Describe methodology
-*   6420699 Merge branch 'simulations'
-|\
-| * 7138785 (origin/simulations) Add simulations
-| * e695fa8 Change title and add coauthor
-* | e950911 Include aircraft in title
-|/
-* 0b28b0a Explain motivation for research
-* 7cacba8 Cite previous work in introduction
-* 56781f4 Cite PCASP article
-* 5033467 Start the introduction
-* e08262e Add title and author
+* 68a3dee (origin/master, origin/HEAD) add figures
+* b37a12f (HEAD -> master) results added
+*   1c90e39 Merge branch 'methodology'
+|\  
+| * cc8efe9 Add methodology
+| * 9a7dc94 Add methodology
+* | 69fefc9 Include git in title
+|/  
+* 4714690 Explain motivation for research
+* 3eac70f cite previous work in intriduction
+* 635f24b write introduction section
+* 537997c add title and authors
+
 ```
 {: .output}
 
@@ -338,7 +337,7 @@ $ git merge origin/master
 {: .language-bash}
 
 ```
-Updating 0cc2a2d..7c239c3
+Updating b37a12f..68a3dee
 Fast-forward
  article.md | 4 ++++
  1 file changed, 4 insertions(+)
@@ -354,10 +353,11 @@ git log --graph --all --decorate --oneline -4
 {: .language-bash}
 
 ```
-* 7c239c3 (HEAD -> master, origin/master, origin/HEAD) Add figures
-* 0cc2a2d Discuss results
-* 3011ee0 Describe methodology
-*   6420699 Merge branch 'simulations'
+* 68a3dee (HEAD -> master, origin/master, origin/HEAD) add figures
+* b37a12f results added
+*   1c90e39 Merge branch 'methodology'
+|\  
+| * cc8efe9 Add methodology
 ```
 {: .output}
 
@@ -483,11 +483,11 @@ we can see that our file is listed as *Unmerged* and if we look at
 ```
 <<<<<<< HEAD
 Author
-Atay, M Selim
+Smith, M John
 =======
 author
-M Selim, Atay
->>>>>>> 1b55fe7f23a6411f99bf573bfb287937ecb647fc
+John, Smith
+>>>>>>> 7a1c84f54933a1719031f6d908d33c0fee7293e9
 ```
 
 The mark-up shows us the parts of the file causing the conflict and the
@@ -521,97 +521,4 @@ $ git pull origin master	# Merge remote branch into local
 ```
 {: .language-bash}
 
-> ## Collaborating on a remote repository
->
-> In this exercise you should work with a partner or a group of three.
-> One of you should give access to your remote repository on GitHub to
-> the others (by selecting `Settings -> Manage access -> Invite a collaborator`).
-> The invited person should then check their email to accept the invitation.
->
-> Now those of you who are added as collaborators should clone the repository of
-> the first person on your machines. (make sure that you **don't clone into
-> a directory that is already a repository**!)
->
-> Each of you should now make some changes to the files in the repository
-> e.g. fix a typo, add a file containing supplementary material.
-> Commit the changes and then push them back to the remote repository.
-> Remember to pull changes before you push.
-{: .challenge}
-
-> ## Creating branches and sharing them in the remote repository
->
-> Working with the same remote repository, each of you should create a new branch
-> locally and push it back to the remote repo.
->
-> Each person should use a different name for their local branch.
-> The following commands assume your new branch is called `my_branch`,
-> and your partner's branch is called `their_branch` ---
-> you should substitute the name of your new branch and your partner's new branch.
->
-> ```
-> $ git checkout -b my_branch		# Create and check out a new branch.
->				 	# Substitute your local branch name for 'my_branch'.
-> ```
-> {: .language-bash}
->
-> Now create/edit a file (e.g. fix a typo, add supplementary material etc), and then commit your changes.
->
-> ```
-> $ git push origin my_branch		# Push your new branch to remote repo.
-> ```
-> {: .language-bash}
->
-> The other person should check out local copies of the branches created by others
-> (so eventually everybody should have the same number of branches as the remote
-> repository).
->
-> To fetch new branches from the remote repository (into your local `.git` database):
->
-> ```
-> $ git fetch origin
-> ```
-> {: .language-bash}
-> ```
-> Counting objects: 3, done.  remote:
-> Compressing objects: 100% (3/3), done.
-> remote: Total 3 (delta 0), reused 2 (delta 0) Unpacking objects: 100% (3/3), done.
-> From  https://github.com/gcapes/article
-> 9e1705a..640210a master -> origin/master
-> * [new branch] their_branch -> origin/their_branch
-> ```
-> {: .output}
->
-> Your local repository should now contain all the branches from the remote repository,
-> but the `fetch` command doesn't actually update your local branches.
->
-> The next step is to check out a new branch locally to track the new remote branch.
->
-> ```
-> $ git checkout their_branch
-> ```
-> {: .language-bash}
-> ```
-> Branch their_branch set up to track remote branch their_branch from origin.
-> Switched to a new branch 'their_branch'
-> ```
-> {: .output}
-{: .challenge}
-
-> ## Undoing changes using revert
->
-> Once you have the branches which others created, try to undo one of the commits.
->
-> Each one of you should try to [revert]({{ page.root }}/07-undoing) a commit in a different
-> branch to your partner(s).
->
-> Push the branch back to the remote repository. The others should pull that
-> branch to get the changes you made.
->
-> What is the end result? What happens when you pull the branch that your
-> colleagues changed using `git revert`?
->
-> > ## Solution
-> > The revert shows up in everyone's copy.
-> > You should always use `revert` to undo changes which have been shared with others.
-> {: .solution}
-{: .challenge}
+We now know how to solve conflicts between branches! 
