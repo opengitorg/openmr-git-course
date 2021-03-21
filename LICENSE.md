@@ -3,8 +3,13 @@ layout: page
 title: "Licenses"
 permalink: /license/
 ---
-## Instructional Material
-This tutorial is adapted from Software Carpentry and using the same license as described below:
+## Current work Licence
+This repository is an adapted work from the Software Carpentry (see licence below).
+It is released under the [Creative Commons Attribution license][cc-by-human].
+Please check the [full legal text of the CC BY 4.0 license][cc-by-legal].
+
+## Original Licence
+This tutorial is adapted from the Software Carpentry git course.
 
 All Software Carpentry and Data Carpentry instructional material is
 made available under the [Creative Commons Attribution
