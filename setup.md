@@ -19,6 +19,7 @@ If you don't have it, follow [this page](https://git-scm.com/book/en/v2/Getting-
 
 ### Installation for Windows
 [Git for Windows](https://git-for-windows.github.io/) is a quick way to have git installed on your Windows machine.
+Alternative, you can use the [Windows Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10) and install git as explained above.
 
 ## GitHub account
 If you don't have a GitHub account already, this is the perfect moment to sign up!
