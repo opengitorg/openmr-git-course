@@ -82,7 +82,6 @@ option we will use:
 $ git remote add origin https://github.com/<USERNAME>/article.git
 $ git push -u origin master
 ```
-{: .language-bash}
 
 The first line sets up an alias `origin`, to correspond to the URL of our
 new repository on GitHub.
@@ -94,9 +93,7 @@ Now copy and paste the second line,
 
 ```
 $ git push -u origin master
-```
-{: .language-bash}
-```
+
 Enumerating objects: 25, done.
 Counting objects: 100% (25/25), done.
 Delta compression using up to 8 threads
@@ -109,7 +106,6 @@ To https://github.com/i-am-mel-dev/git-course-article.git
 Branch 'master' set up to track remote branch 'master' from 'origin'.
 
 ```
-{: .output}
 
 This **pushes** our `master` branch to the remote repository, named via the alias
 `origin` and creates a new `master` branch in the remote repository.
@@ -128,7 +124,6 @@ Let's push each of our local branches into our remote repository:
 ```
 $ git push origin branch_name
 ```
-{: .language-bash}
 
 The branch should now be created in our GitHub repository.
 
@@ -137,7 +132,6 @@ To list all branches (local and remote):
 ```
 $ git branch -a
 ```
-{: .language-bash}
 
 > ## Deleting branches (for information only)
 > **Don't do this now.** This is just for information.
@@ -147,7 +141,7 @@ $ git branch -a
 > $ git branch -d <branch_name>			# For local branches
 > $ git push origin --delete <branch_name>	# For remote branches
 > ```
-> {: .language-bash}
+>
 {: .callout}
 
 ### Cloning a remote repository
@@ -162,15 +156,12 @@ Before we clone the repo, we'll navigate up one directory so that we're not alre
 ```
 cd ..
 ```
-{: .language-bash}
 
 Then to clone the repo into a new directory called `laptop_article`
 
 ```
 $ git clone https://github.com/<USERNAME>/article.git laptop_article
-```
-{: .language-bash}
-```
+
 Cloning into 'laptop_article'...
 remote: Enumerating objects: 25, done.
 remote: Counting objects: 100% (25/25), done.
@@ -178,7 +169,6 @@ remote: Compressing objects: 100% (15/15), done.
 remote: Total 25 (delta 8), reused 25 (delta 8), pack-reused 0
 Unpacking objects: 100% (25/25), 2.54 KiB | 520.00 KiB/s, done.
 ```
-{: .output}
 
 Cloning creates an exact copy of the repository. By deafult it creates
 a directory with the same name as the name of the repository.
@@ -191,13 +181,11 @@ Now, if we `cd` into *laptop_article* we can see that we have our repository,
 $ cd laptop_article
 $ git log
 ```
-{: .language-bash}
 and we can see our Git configuration files too:
 
 ```
 $ ls -A
 ```
-{: .language-bash}
 
 In order to see the other branches locally, we can check them out as before:
 
@@ -205,7 +193,6 @@ In order to see the other branches locally, we can check them out as before:
 $ git branch -r					# Show remote branches
 $ git checkout simulations			# Check out the simulations branch
 ```
-{: .language-bash}
 
 ### Push changes to a remote repository
 
@@ -218,7 +205,6 @@ $ atom article.md				# Add results section
 $ git add article.md				# Stage changes
 $ git commit
 ```
-{: .language-bash}
 
 Having done that, how do we send our changes back to the remote repository? We
 can do this by *pushing* our changes,
@@ -226,7 +212,6 @@ can do this by *pushing* our changes,
 ```
 $ git push origin master
 ```
-{: .language-bash}
 
 If we now check our GitHub page we should be able to see our new changes under
 the *Commit* tab.
@@ -236,7 +221,6 @@ To see all remote repositories (we can have multiple!) type:
 ```
 $ git remote -v
 ```
-{: .language-bash}
 
 
 
@@ -256,14 +240,12 @@ and `git pull` the commit from the remote.
 $ cd ../article
 $ git pull origin master
 ```
-{: .language-bash}
 
 We can now view the contents of `article.md` and check the log to confirm we have
 the latest commit from the remote:
 ```
 $ git log -2
 ```
-{: .language-bash}
 
 Still in the `article` directory, let's [add a figures section][add-figures] to `article.md`,
 commit the file and push these changes to GitHub:
@@ -274,7 +256,6 @@ $ git add article.md
 $ git commit -m "Add figures"
 $ git push
 ```
-{: .language-bash}
 
 Now let's change directory to our other repository and `fetch` the commits from our
 remote repository,
@@ -283,7 +264,6 @@ remote repository,
 $ cd ../laptop_article		# Switch to the other directory
 $ git fetch
 ```
-{: .language-bash}
 
 `git fetch` doesn't change any of the local branches,
 it just gets information about what commits are on the remote branches.
@@ -293,10 +273,7 @@ so let's draw a network graph before going any further:
 
 ```
 git log --graph --all --decorate --oneline
-```
-{: .language-bash}
 
-```
 * 68a3dee (origin/master, origin/HEAD) add figures
 * b37a12f (HEAD -> master) results added
 *   1c90e39 Merge branch 'methodology'
@@ -311,7 +288,6 @@ git log --graph --all --decorate --oneline
 * 537997c add title and authors
 
 ```
-{: .output}
 
 As expected, we see that the `origin/master` branch is ahead of our local `master` branch
 by one commit  --- note that the history hasn't diverged,
@@ -322,7 +298,6 @@ We can now see what the differences are by doing,
 ```
 $ git diff origin/master
 ```
-{: .language-bash}
 
 which compares our `master` branch with the `origin/master` branch
 which is the name of the `master` branch in `origin` which is the alias for our
@@ -334,40 +309,31 @@ instead we get a *fast-forward* merge.
 
 ```
 $ git merge origin/master
-```
-{: .language-bash}
 
-```
 Updating b37a12f..68a3dee
 Fast-forward
  article.md | 4 ++++
  1 file changed, 4 insertions(+)
 ```
-{: .output}
 
 If we look at the network graph again, all that has changed
 is that `master` now points to the same commit as `origin/master`.
 
 ```
 git log --graph --all --decorate --oneline -4
-```
-{: .language-bash}
 
-```
 * 68a3dee (HEAD -> master, origin/master, origin/HEAD) add figures
 * b37a12f results added
 *   1c90e39 Merge branch 'methodology'
 |\  
 | * cc8efe9 Add methodology
 ```
-{: .output}
 
 We can inspect the file to confirm that we have our changes.
 
 ```
 $ cat article.md
 ```
-{: .language-bash}
 
 So we have now used two slightly different methods to get the latest changes
 from the remote repo.
@@ -396,7 +362,6 @@ $ git push origin master
 $ cd ../article			# Switch back to the article directory
 $ git pull origin master	# Get changes from remote repository
 ```
-{: .language-bash}
 
 This is the same scenario as before, so we get another fast-forward merge.
 
@@ -406,7 +371,6 @@ We can check that we have our changes:
 $ cat article.md
 $ git log
 ```
-{: .language-bash}
 
 ### Conflicts and how to resolve them
 
@@ -421,7 +385,6 @@ $ git add article.md
 $ git commit -m "Add author affiliations"
 $ git push origin master
 ```
-{: .language-bash}
 
 Now let us suppose, at a later date, we use our other repository (on the laptop)
 and we want to [change the order of the authors][change-first-author].
@@ -435,9 +398,7 @@ $ atom article.md		# Change order of the authors
 $ git add article.md
 $ git commit -m "Change the first author" article.md
 $ git push origin master
-```
-{: .language-bash}
-```
+
 To https://github.com/<USERNAME>/article.git
  ! [rejected]        master -> master (fetch first)
 error: failed to push some refs to 'https://github.com/<USERNAME>/article.git'
@@ -447,7 +408,6 @@ hint: to the same ref. You may want to first integrate the remote changes
 hint: (e.g., 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
-{: .output}
 
 Our push fails, as we've not yet pulled down our changes from our remote
 repository. Before pushing we should always pull, so let's do that...
@@ -455,7 +415,6 @@ repository. Before pushing we should always pull, so let's do that...
 ```
 $ git pull origin master
 ```
-{: .language-bash}
 
 and we get:
 
@@ -464,7 +423,6 @@ Auto-merging article.md
 CONFLICT (content): Merge conflict in article.md
 Automatic merge failed; fix conflicts and then commit the result.
 ```
-{: .output}
 
 As we saw earlier, with the fetch and merge, `git pull` pulls down changes from the
 repository and tries to merge them. It does this on a file-by-file basis,
@@ -476,7 +434,6 @@ If we look at the status,
 ```
 $ git status
 ```
-{: .language-bash}
 
 we can see that our file is listed as *Unmerged* and if we look at
 *article.md*, we see something like:
@@ -504,7 +461,6 @@ $ git add article.md		# Stage the file
 $ git commit			# Commit to mark the conflict as resolved
 $ git push origin master
 ```
-{: .language-bash}
 
 ... all goes well. If we now go to GitHub and click on the "Overview" tab we can
 see where our repository diverged and came together again.
@@ -520,7 +476,6 @@ so both copies are up to date:
 $ cd ../article			# Switch to 'article' directory
 $ git pull origin master	# Merge remote branch into local
 ```
-{: .language-bash}
 
 We now know how to solve conflicts between branches!
 ## What is rebasing
@@ -534,10 +489,7 @@ and `origin/master` is merged back into `master`.
 
 ```
 $ git log --graph --all --oneline --decorate -6
-```
-{: .language-bash}
 
-```
 *   365748e (HEAD -> master, origin/master, origin/HEAD) Merge branch 'master' of github.com:i-am-mel-dev/github course article
 * af1042b (HEAD -> master, origin/master) add author affiliations
 * a83a765 write conclusions
@@ -546,7 +498,6 @@ $ git log --graph --all --oneline --decorate -6
 *   1c90e39 Merge branch 'methodology'
 
 ```
-{: .output}
 
 Normally a merge commit indicates that a feature branch has been completed,
 a bug has been fixed, or marks a release version of our project.
