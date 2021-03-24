@@ -1,5 +1,4 @@
 ---
-<<<<<<< HEAD
 title: "Tracking changes with a local repository"
 teaching: 10
 exercises: 0
