@@ -33,12 +33,11 @@ We should [reference some previous work][reference-previous-work] in the introdu
 Make the required changes, save both files but do not commit the changes yet.
 We can review the changes that we made using:
 
-~~~
+```
 $ atom article.md		# Cite previous studies in introduction
 $ atom refs.txt		# Add the reference to the database
 $ git diff 			# View changes
-~~~
-{: .language-bash}
+```
 
 This shows the difference between the latest copy in the repository and the
 unstaged changes we have made.
@@ -73,19 +72,15 @@ Now commit the change we made by adding the second reference:
 $ git add article.md refs.txt
 $ git commit			# "Cite previous work in introduction"
 ```
-{: .language-bash}
 
 ### Looking at our history
 
 To see the history of changes that we made to our repository (the most recent
 changes will be displayed at the top):
 
-~~~
-$ git log
-~~~
-{: .language-bash}
-
 ```
+$ git log
+
 commit 3eac70f1e09f003c26783d2467e8c7d9a4f6826e (HEAD -> master)
 Author: Selim Atay <youremail@yourdomain.com>
 Date:   Sun Mar 21 09:51:55 2021 +0300
@@ -105,7 +100,7 @@ Date:   Fri Mar 19 18:51:06 2021 +0300
     add title and authors
 
 ```
-{: .output}
+
 
 The output shows (on separate lines):
 - the commit identifier (also called revision number) which
@@ -121,31 +116,28 @@ In order to see the changes made between any earlier commit and our
 current version, we can use  `git diff` followed by the commit identifier of the
 earlier commit:
 
-~~~
+```
 $ git diff COMMITID		# View differences between current version and COMMITID
-~~~
-{: .language-bash}
+```
 
 And, to see changes between two commits:
 
-~~~
+```
 $ git diff OLDER_COMMITID NEWER_COMMITID
-~~~
-{: .language-bash}
+```
 
 Using our commit identifiers we can set our working directory to contain the
 state of the repository as it was at any commit. So, let's go back to the very
 first commit we made,
 
-~~~
+```
 $ git log
 $ git checkout INITIAL_COMMITID
-~~~
-{: .language-bash}
+```
 
 We will get something like this:
 
-~~~
+```
 Note: checking out '3eac70f'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
@@ -158,42 +150,38 @@ do so (now or later) by using -b with the checkout command again. Example:
   git checkout -b new_branch_name
 
 HEAD is now at 3eac70f... Add title and authors
-~~~
-{: .output}
+```
 
  'detached HEAD' is a strange concept in git
 
 If we look at `article.md` we'll see it's our very first version. And if we
 look at our directory,
 
-~~~
+```
 $ ls
-~~~
-{: .language-bash}
-~~~
+```
+```
 article.md
-~~~
-{: .output}
+```
+
 
 then we see that our `refs.txt` file is gone. But, rest easy, while it's
 gone from our working directory, it's still in our repository. We can jump back
 to the latest commit by doing:
 
-~~~
+```
 $ git checkout master
-~~~
-{: .language-bash}
+```
 
 And `refs.txt` will be there once more,
 
-~~~
+```
 $ ls
-~~~
-{: .language-bash}
-~~~
+```
+```
 article.md refs.txt
-~~~
-{: .output}
+```
+
 So we can get any version of our files from any point in time. In other words,
 we can set up our working directory back to any stage it was when we made
 a commit.
@@ -229,18 +217,14 @@ state, we can just checkout master again.
 If we use `git log` with a couple of options, we can display the history as a graph,
 and decorate those commits corresponding to Git references (e.g. `HEAD`, `master`):
 
-~~~
-$ git log --graph --decorate --oneline
-~~~
-{: .language-bash}
-
 ```
+$ git log --graph --decorate --oneline
+
 * 3eac70f (HEAD -> master) cite previous work in introduction
 * 635f24b write introduction section
 * 537997c add title and authors
 
 ```
-{: .output}
 
 Notice how `HEAD` and `master` point to the same commit.
 Now checkout a previous commit again, and look at the graph again.
@@ -250,15 +234,11 @@ rather than just up to the current commit.
 ```
 $ git checkout HEAD~				# This syntax refers to the commit before HEAD
 $ git log --graph --decorate --oneline --all
-```
-{: .language-bash}
 
-```
 * 3eac70f (master) cite previous work in introduction
 * 635f24b (HEAD) write introduction section
 * 537997c add title and authors
 ```
-{: .output}
 
 Notice how `HEAD` no longer points to the same commit as `master`.
 Let's return to the current version of the project by checking out `master` again.
@@ -266,7 +246,6 @@ Let's return to the current version of the project by checking out `master` agai
 ```
 $ git checkout master
 ```
-{: .language-bash}
 
 ### Using tags as nicknames for commit identifiers
 
@@ -278,14 +257,12 @@ For example,
 ```
 $ git tag article_STUB
 ```
-{: .language-bash}
 
 We can list tags by doing:
 
 ```
 $ git tag
 ```
-{: .language-bash}
 
 Let's explain to the reader [why this research is important][give-context]:
 
@@ -294,7 +271,6 @@ $ atom article.md	# Give context for research
 $ git add article.md
 $ git commit -m "Explain motivation for research" article.md
 ```
-{: .language-bash}
 
 We can checkout our previous version using our tag instead of a commit
 identifier.
@@ -302,14 +278,12 @@ identifier.
 ```
 $ git checkout article_STUB
 ```
-{: .language-bash}
 
 And return to the latest checkout,
 
 ```
 $ git checkout master
 ```
-{: .language-bash}
 
 > ## Top tip: tag significant events
 > When do you tag? Well, whenever you might want to get back to the exact
@@ -324,15 +298,13 @@ $ git checkout master
 
 You might have noticed the term *branch* in status messages:
 
-~~~
+```
 $ git status
-~~~
-{: .language-bash}
-~~~
+
 On branch master
 nothing to commit (working directory clean)
-~~~
-{: .output}
+```
+
 
 and when we wanted to get back to our most recent version of the repository, we
 used `git checkout master`.
@@ -386,58 +358,50 @@ if it will actually make a publication. So it will be safer to create a branch
 and carry on working on this "experimental" version of the article in a branch
 rather than in the master.
 
-~~~
+```
 $ git checkout -b methodology
-~~~
-{: .language-bash}
-~~~
+
 Switched to a new branch 'methodology'
-~~~
-{: .output}
+```
+
 
 We're going to change the title of the article and update the author list (adding John Smith).
 However, before we get started it's a good practice to check that we're working
 on the right branch.
 
-~~~
+```
 $ git branch			# Double check which branch we are working on
-~~~
-{: .language-bash}
-~~~
+
   master
 * methodology
-~~~
-{: .output}
+```
+
 
 The * indicates which branch we're currently in. Now let's [make the changes][change-title] to the article.
 
-~~~
+```
 $ atom article.md		# Change title and add co-author
 $ git add article.md
 $ git commit			# "Modify title and add John as co-author"
-~~~
-{: .language-bash}
+```
 
 If we now want to work in our `master` branch. We can switch back by using:
 
-~~~
+```
 $ git checkout master
-~~~
-{: .language-bash}
-~~~
+
 Switched to branch 'master'
-~~~
-{: .output}
+```
+
 
 Having written some of the article, we have thought of a [better title][aircraft-title] for
 the `master` version of the article.
 
-~~~
+```
 $ atom article.md		# Rewrite the title
 $ git add article.md
 $ git commit			# "Include aircraft in title"
-~~~
-{: .language-bash}
+```
 
 ### Merging and resolving conflicts
 
@@ -445,13 +409,12 @@ We are now working on two articles: the main one in our `master` branch and the 
 which may possibly be collaborative work in our "methodology" branch.
 Let's [add another section][methodology-section] to the article to write about John's methodology.
 
-~~~
+```
 $ git checkout methodology	# Switch branch
 $ atom article.md		# Add 'methodology' section
 $ git add article.md
 $ git commit -m "Add methodology" article.md
-~~~
-{: .language-bash}
+```
 
 At this point let's visualise the state of our repo,
 and we can see the diverged commit history reflecting the recent work
@@ -459,10 +422,7 @@ on our two branches:
 
 ```
 git log --graph --all --oneline --decorate
-```
-{: .language-bash}
 
-```
 * cc8efe9 (HEAD -> methodology) Add methodology
 * 9a7dc94 Add methodology
 | * 69fefc9 (master) Include git in title
@@ -473,7 +433,7 @@ git log --graph --all --oneline --decorate
 * 537997c add title and authors
 
 ```
-{: .output}
+
 
 After some discussions with John we decided that we will publish together,
 hence it makes sense to now merge all that was authored together with John
@@ -481,28 +441,24 @@ in branch "methodology".
 We can do that by *merging* that branch with the `master` branch. Let's try
 doing that:
 
-~~~
+```
 $ git checkout master		# Switch branch
 $ git merge methodology		# Merge methodology into master
-~~~
-{: .language-bash}
-~~~
+
 Auto-merging article.md
 CONFLICT (content): Merge conflict in article.md
 Automatic merge failed; fix conflicts and then commit the result.
-~~~
-{: .output}
+```
+
 
 Git cannot complete the merge because there is a conflict - if you recall,
 after creating the new branch, we changed the title of the article on both branches.
 We have to resolve the conflict and then complete the merge. We can get
 some more detail
 
-~~~
+```
 $ git status
-~~~
-{: .language-bash}
-~~~
+
 On branch master
 You have unmerged paths.
   (fix conflicts and run "git commit")
@@ -511,8 +467,7 @@ Unmerged paths:
   (use "git add <file>..." to mark resolution)
 
     	both modified:      article.md
-~~~
-{: .output}
+```
 
 Let's look inside article.md:
 
@@ -540,12 +495,11 @@ of the two e.g. "The most amazing git and github article with the best title eve
 
 [We edit the file][resolve-conflict]. Then commit our changes:
 
-~~~
+```
 $ atom article.md		# Resolve conflict by editing article.md
 $ git add article.md		# Let Git know we have resolved the conflict
 $ git commit
-~~~
-{: .language-bash}
+```
 
 This is where version control proves itself better than DropBox or GoogleDrive,
 this ability to merge text files line-by-line and highlight the conflicts
@@ -555,10 +509,7 @@ We can see the two branches merged if we take another look at the log graph:
 
 ```
 $ git log --graph --decorate --all --oneline
-```
-{: .language-bash}
 
-```
 *   1c90e39 (HEAD -> master) Merge branch 'methodology'
 |\  
 | * cc8efe9 (methodology) Add methodology
@@ -570,7 +521,7 @@ $ git log --graph --decorate --all --oneline
 * 635f24b write introduction section
 * 537997c add title and authors
 ```
-{: .output}
+
 
 
 ### Discarding local changes
@@ -584,7 +535,6 @@ our file to the most recent version we committed to the repository by using:
 $ atom article.md		# Make some small edits to the file
 $ git checkout article.md		# Discard edits we just made
 ```
-{: .language-bash}
 
 and we can see that our file has reverted to being the most up-to-date one in
 the repository:
@@ -593,7 +543,6 @@ the repository:
 $ git status			# See that we have a clean working directory
 $ atom article.md		# Inspect file to verify changes have been discarded
 ```
-{: .language-bash}
 
 ---
 
@@ -619,11 +568,7 @@ file.
 $ atom article.md		# Add methodology section, including a reference to model
 $ atom refs.txt		# Add new reference for the model used
 $ git status			# Get a status update on file modifications
-```
-{: .output}
-{: .language-bash}
 
-```
 $ On branch master
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
@@ -634,7 +579,7 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
-{: .output}
+
 
 Let's then add and commit *article.md* but **not the references file**.
 
@@ -642,15 +587,12 @@ Let's then add and commit *article.md* but **not the references file**.
 $ git add article.md		 # Add article to staging area
 $ git commit -m "Describe methodology"
 ```
-{: .language-bash}
 
 Let's have a look at our working directory now:
 
 ```
 $ git status
-```
-{: .language-bash}
-```
+
 $ On branch master
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
@@ -660,7 +602,7 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
-{: .output}
+
 
 Also, run `git log -2` to see what is the latest commit message and ID.
 
@@ -670,7 +612,6 @@ Now, we want to fix our commit and add the references file.
 $ git add refs.txt	# Add reference file
 $ git commit --amend		# Amend most recent commit
 ```
-{: .language-bash}
 
 This will again bring up the editor and we can amend the commit message if required.
 
@@ -681,7 +622,6 @@ Directory is clean and that both files were added.
 $ git status
 $ git log -3
 ```
-{: .language-bash}
 
 ---
 
@@ -698,7 +638,6 @@ $ atom article.md		# Describe other instrument
 $ git add article.md
 $ git commit -m "Describe Github"
 ```
-{: .language-bash}
 
 We now realise that what we've just done in our journal article is incorrect
 because we are not using the data from that instrument.
@@ -709,7 +648,6 @@ So it makes sense to abandon the commit completely.
 ```
 $ git revert HEAD		# Undo changes introduced by most recent commit
 ```
-{: .language-bash}
 
 When we revert, a new commit is created. The *HEAD* pointer and the branch
 pointer are in fact moved forward rather than backwards. 	
@@ -725,7 +663,7 @@ hint: after resolving the conflicts, mark the corrected paths
 hint: with 'git add <paths>' or 'git rm <paths>'
 hint: and commit the result with 'git commit'
 ```
-{: .output}
+
 
 Behind the scenes Git gets confused trying to merge the commit *HEAD* is pointing
 to with the past commit we're reverting.
@@ -756,12 +694,10 @@ We can do that by running:
 
 ```
 $ git reset --hard HEAD~2	# Move tip of branch to two commits before HEAD
-```
-{: .language-bash}
-```
+
 HEAD is now at fbdc44b Add methodology section and update references file
 ```
-{: .output}
+
 
 This moves the tip of the branch back to the specified commit. If we look in-depth,
 this command moves back two pointers: `HEAD` and the pointer to the tip of the

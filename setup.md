@@ -7,14 +7,20 @@ permalink: /setup/
 There are no files required for this lesson. You will create all the files needed.
 
 ## Software
-Git is free and open-source software, available for all operating systems.
-The PCs in the training rooms and clusters at the University Of Manchester should already have Git installed.
-If you are using Windows to follow this course, you should open `Git BASH`.
+Git is a free and open-source software, available for all operating systems.
+If you are using Windows to follow this course, you should open `Git BASH` (see Installation).
 
-### Installation on a managed desktop PC
-[Git for Windows](https://git-for-windows.github.io/) is available for self-installation from the
-[Software Centre](https://supportcentre.manchester.ac.uk/ServiceDesk.WebAccess/wd/object/open.rails?class_name=Knowledge.Article&key=2713eff4-2720-4db8-a1f6-a4bbb0d70cab).
+### Installation on Linux and MacOS
+Chances are that git is already installed on your system by default. To check if that is the case, open a terminal and use the command:
+```
+git --version
+```
+If you don't have it, follow [this page](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) to install it.
 
-### Installation on personal and unmanaged machines
-[See here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for installation instructions
-for the major operating systems.
+### Installation for Windows
+[Git for Windows](https://git-for-windows.github.io/) is a quick way to have git installed on your Windows machine.
+Alternative, you can use the [Windows Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10) and install git as explained above.
+
+## GitHub account
+If you don't have a GitHub account already, this is the perfect moment to sign up!
+Just visit [this page](https://github.com/join?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home).
