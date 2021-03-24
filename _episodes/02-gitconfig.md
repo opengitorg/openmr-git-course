@@ -1,22 +1,13 @@
 ---
-title: "Tracking changes with a local repository"
-teaching: 20
+title: "Configure git locally!"
+teaching: 10
 exercises: 0
 questions:
-- "How to get started with Git?"
+- "How do I setup my git?"
 objectives:
 - "Know how to set up a new Git repository."
-- "Understand how to start tracking files."
-- "Be able to commit changes to your repository."
 keypoints:
 - "`git init` initializes a new repository"
-- "`git status` shows the status of a repository"
-- "Files can be stored in a project’s `working directory` (which users see),
-  the `staging area` (where the next commit is being built up) and the
-  `local repository` (where commits are permanently recorded)"
-- "`git add` puts files in the staging area"
-- "`git commit` saves the staged content as a new commit in the local repository"
-- "Always write a log message when committing changes"
 ---
 
 Version control is centered round the notion of a *repository* which holds your
