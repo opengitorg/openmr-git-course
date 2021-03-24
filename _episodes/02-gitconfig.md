@@ -9,7 +9,7 @@ objectives:
 - "Be able to commit changes to your repository."
 keypoints:
 - "lets configure git"
-"`git init` initializes a new repository"
+- "`git init` initializes a new repository"
 ---
 
 ## Version Control
