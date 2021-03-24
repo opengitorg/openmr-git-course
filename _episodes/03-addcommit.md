@@ -241,8 +241,7 @@ Let's add a directory *common* and a file *references.txt* for references we may
 want to reuse:
 
 ~~~
-$ mkdir common
-$ atom common/references.txt					# Add a reference
+$ atom refs.txt					# Add a reference
 ~~~
 {: .language-bash}
 
@@ -259,7 +258,7 @@ We can actually tell Git to track everything in the given sub-directory:
 
 ~~~
 $ git add common						# Track everything currently in the 'common' directory
-$ git status							# Verify that common/references.txt is now tracked
+$ git status							# Verify that refs.txt is now tracked
 ~~~
 {: .language-bash}
 
@@ -276,6 +275,7 @@ and Git will add, then commit, both the directory and the file.
 
 In order to add all tracked files to the staging area, use `git commit -a`
 (which may be very useful if you edit e.g. 10 files and now you want to commit all of them).
+
 
 ![The Git commit workflow](../fig/git-committing.svg)
 [an additional resource](https://zenodo.org/record/3369466)
