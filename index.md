@@ -43,7 +43,7 @@ Creating a new commit representing the current state of the index and advancing 
 what "ls" shows when you "cd" in a folder or "pwd"
 
 ## Git
-Git (/ɡɪt/)[7] is software for tracking changes in any set of files,
+Git is software for tracking changes in any set of files,
 ## Github
 is a provider of Internet hosting for software development and version control using Git.
 ## Pull Request
