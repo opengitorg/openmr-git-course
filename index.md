@@ -33,4 +33,4 @@ Several Git resources:
 * [a visual guide for git](https://marklodato.github.io/visual-git-guide/index-en.html)
 * [think like a git](think-like-a-git.net)
 
-# [Glossary](../openmr-git-course/glossary.md)
+# [Glossary](../openmr-git-course/gh-pages/glossary.md)
