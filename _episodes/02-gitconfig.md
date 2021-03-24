@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 title: "Tracking changes with a local repository"
 teaching: 10
 exercises: 0
@@ -9,6 +10,17 @@ objectives:
 - "Be able to commit changes to your repository."
 keypoints:
 - "lets configure git"
+=======
+title: "Configure git locally!"
+teaching: 10
+exercises: 0
+questions:
+- "How do I setup my git?"
+objectives:
+- "Know how to set up a new Git repository."
+keypoints:
+- "`git init` initializes a new repository"
+>>>>>>> b98f590aef8d58b46811e19124569fec441321c4
 ---
 
 Version control is centered round the notion of a *repository* which holds your

@@ -1,15 +1,13 @@
 ---
 title: "Tracking changes with a local repository"
-teaching: 20
+teaching: 10
 exercises: 0
 questions:
 - "How to get started with Git?"
 objectives:
-- "Know how to set up a new Git repository."
 - "Understand how to start tracking files."
 - "Be able to commit changes to your repository."
 keypoints:
-- "`git init` initializes a new repository"
 - "`git status` shows the status of a repository"
 - "Files can be stored in a project’s `working directory` (which users see),
   the `staging area` (where the next commit is being built up) and the
