@@ -12,6 +12,7 @@ keypoints:
 "`git init` initializes a new repository"
 ---
 
+## Version Control
 Version control is centered round the notion of a *repository* which holds your
 directories and files. We'll start by looking at a local repository. The local
 repository is set up in a directory in your local file system (local machine).
