@@ -10,13 +10,13 @@ root: .
 >
 > You're invited to follow along during the *Introduction to Git(Hub)* session of [OpenMR Virtual 2021](https://openmrbenelux.github.io/)!
 > However, if you feel lost or too far behind, this material will help you catch up with us! We will leave this material online after the event, to leave you with a reference for your git usage!
-> 
+>
 > To follow the tutorial, you can use your **favorite terminal** on Unix systems (any Linux or Mac OS), or **WSL** on Windows.
 > If you do not have **WSL** or you prefer something different, you can use **git bash**.
 > Please refer to the [setup page](/setup/) if you need help in setting up git!
 >
 > We will try our best to avoid using platform-dependent commands or programs, but it might happen to use a text editor.
-> You can use your favorite one (vi, vim, gedit, atom, sublime, notepad, ...) - but remember to set it as default editor when you configure git! 
+> You can use your favorite one (vi, vim, gedit, atom, sublime, notepad, ...) - but remember to set it as default editor when you configure git!
 >
 > You will need a GitHub account for this tutorial.
 > Please sign up [here](https://github.com/) if you do not already have one!
@@ -30,10 +30,5 @@ Several Git resources:
 (You may want to download a copy of this for reference before the workshop)
 
 * [Introduction to GitHub: A visual guide](https://zenodo.org/record/3369466)
-* [Mozilla open leadership GitHub training](https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/introducing-github-for-collaborative-work-and-version-control/)
-* [Happy Git and GitHub for the useR](https://happygitwithr.com/)
-* [try.github.io](https://try.github.io/)
-* [git scm book - english](https://git-scm.com/book/en/v2)
-* [a simple guide for git](https://rogerdudler.github.io/git-guide/)
 * [a visual guide for git](https://marklodato.github.io/visual-git-guide/index-en.html)
 * [think like a git](think-like-a-git.net)

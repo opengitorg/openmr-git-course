@@ -517,7 +517,7 @@ $ git log --graph --decorate --all --oneline
 * | 69fefc9 Include git in title
 |/  
 * 4714690 Explain motivation for research
-* 3eac70f (tag: article_STUB) cite previous work in intriduction
+* 3eac70f (tag: article_STUB) cite previous work in introduction
 * 635f24b write introduction section
 * 537997c add title and authors
 ```

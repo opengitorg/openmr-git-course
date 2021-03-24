@@ -1,22 +1,14 @@
 ---
 title: "Tracking changes with a local repository"
-teaching: 20
+teaching: 10
 exercises: 0
 questions:
-- "How to get started with Git?"
+- "How to configure Git locally?"
 objectives:
-- "Know how to set up a new Git repository."
-- "Understand how to start tracking files."
+- "Know how to set Git credentials."
 - "Be able to commit changes to your repository."
 keypoints:
-- "`git init` initializes a new repository"
-- "`git status` shows the status of a repository"
-- "Files can be stored in a project’s `working directory` (which users see),
-  the `staging area` (where the next commit is being built up) and the
-  `local repository` (where commits are permanently recorded)"
-- "`git add` puts files in the staging area"
-- "`git commit` saves the staged content as a new commit in the local repository"
-- "Always write a log message when committing changes"
+- "lets configure git"
 ---
 
 Version control is centered round the notion of a *repository* which holds your
@@ -55,7 +47,7 @@ Note that you need to enclose your name in quotation marks!
 
 When working with Git we will often need to provide some short but useful information (commit messages).
 It's possible to enter such information in the command itself, but in case you forget, `git` will open your favorite editor to remind you to do that.
-However, you need to tell `git` which editor you prefer first. 
+However, you need to tell `git` which editor you prefer first.
 You can choose any editor available on your system.
 
 ```
