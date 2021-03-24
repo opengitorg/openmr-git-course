@@ -1,3 +1,4 @@
+# glossary
 ## Branch
 A branch in Git is simply a lightweight movable pointer to one of these commits. ... As you start making commits, you're given a master branch that points to the last commit you made.
 ## Commit

@@ -33,7 +33,7 @@ Several Git resources:
 * [a visual guide for git](https://marklodato.github.io/visual-git-guide/index-en.html)
 * [think like a git](think-like-a-git.net)
 
-#[Glossary]()
+#[Glossary](https://github.com/opengitorg/openmr-git-course/blob/gh-pages/glossary.md)
 ## Branch
 A branch in Git is simply a lightweight movable pointer to one of these commits. ... As you start making commits, you're given a master branch that points to the last commit you made.
 ## Commit
