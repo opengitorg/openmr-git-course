@@ -28,12 +28,6 @@ Several Git resources:
 
 * [Git cheat sheet](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf)
 (You may want to download a copy of this for reference before the workshop)
-
-* [Introduction to GitHub: A visual guide](https://zenodo.org/record/3369466)
-* [Mozilla open leadership GitHub training](https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/introducing-github-for-collaborative-work-and-version-control/)
-* [Happy Git and GitHub for the useR](https://happygitwithr.com/)
-* [try.github.io](https://try.github.io/)
-* [git scm book - english](https://git-scm.com/book/en/v2)
-* [a simple guide for git](https://rogerdudler.github.io/git-guide/)
-* [a visual guide for git](https://marklodato.github.io/visual-git-guide/index-en.html)
-* [think like a git](think-like-a-git.net)
+* [Introduction to GitHub: A visual guide](https://zenodo.org/record/3369466) (If you want a different visual representation of your git process)
+* [a visual guide for git](https://marklodato.github.io/visual-git-guide/index-en.html) (A more in-depth guide to git)
+* [think like a git](think-like-a-git.net) (An incredible course to learn git!)
