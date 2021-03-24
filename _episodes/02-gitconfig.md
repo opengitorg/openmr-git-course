@@ -1,5 +1,5 @@
 ---
-title: "Tracking changes with a local repository"
+title: "Hello git"
 teaching: 10
 exercises: 0
 questions:
